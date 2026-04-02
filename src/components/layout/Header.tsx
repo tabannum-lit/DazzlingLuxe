@@ -1,13 +1,87 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+
+const navItems = [
+  { label: 'New & featured', to: '/' },
+  { label: 'Shop by', to: '/jewelry' },
+  { label: 'Charms', to: '/personalized-keepsakes' },
+  { label: 'Bracelets', to: '/jewelry' },
+  { label: 'Necklaces', to: '/jewelry' },
+  { label: 'Rings', to: '/jewelry' },
+  { label: 'Earrings', to: '/jewelry' },
+  { label: 'Engraving', to: '/personalized-keepsakes' },
+  { label: 'Lab-grown diamonds', to: '/sale' },
+  { label: 'Gifts', to: '/send-your-flowers' },
+  { label: 'Collections', to: '/jewelry' },
+  { label: 'Sale', to: '/sale', highlight: true },
+];
+
+const BrandMark = ({ light }: { light: boolean }) => (
+  <Link to="/" className="relative inline-flex items-start pt-2" aria-label="Dazzling Luxe home">
+    <span
+      className={`whitespace-nowrap font-heading text-[22px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 sm:text-[24px] lg:text-[26px] ${
+        light ? 'text-white' : 'text-charcoal'
+      }`}
+    >
+      Dazzling Luxe
+    </span>
+    <svg
+      className={`absolute left-[42%] top-0 h-[10px] w-[10px] -translate-x-1/2 transition-colors duration-300 ${
+        light ? 'text-white' : 'text-warmGold'
+      }`}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      aria-hidden="true"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 18h16l-2-8-6 4-6-4-2 8z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M7 10l2-4 3 5 3-5 2 4" />
+    </svg>
+  </Link>
+);
+
+const IconButton = ({
+  label,
+  light,
+  children,
+  to,
+}: {
+  label: string;
+  light: boolean;
+  children: ReactNode;
+  to?: string;
+}) => {
+  const className = `inline-flex items-center justify-center transition-opacity duration-200 ${
+    light ? 'text-white hover:opacity-70' : 'text-charcoal hover:opacity-65'
+  }`;
+
+  if (to) {
+    return (
+      <Link to={to} className={className} aria-label={label}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <button type="button" className={className} aria-label={label}>
+      {children}
+    </button>
+  );
+};
 
 const Header = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const { totalQuantity } = useCart();
   const headerRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
+
+  const isHomePage = location.pathname === '/';
+  const lightHeader = isHomePage;
 
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
@@ -15,53 +89,49 @@ const Header = () => {
         setIsMobileOpen(false);
       }
     };
+
     document.addEventListener('click', onDocClick);
     return () => document.removeEventListener('click', onDocClick);
   }, []);
 
-  const handleSearch = (e: React.FormEvent) => {
+  useEffect(() => {
+    setIsMobileOpen(false);
+  }, [location.pathname]);
+
+  const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/shop?search=${encodeURIComponent(searchQuery)}`);
       setSearchQuery('');
+      setIsMobileOpen(false);
     }
   };
 
-  const navLinks = [
-    { to: '/feature-this-season', label: 'Feature This Season' },
-    { to: '/earring', label: 'Earring' },
-    { to: '/pendant', label: 'Pendant' },
-    { to: '/rings', label: 'Rings' },
-    { to: '/suncatchers', label: 'Suncatchers' },
-    { to: '/send-your-flowers', label: 'Send Your Flowers' },
-    { to: '/personalization-a-gift', label: 'Personalization A Gift' },
-  ];
-
-  const linkBase =
-    'block rounded-lg px-2 py-2 text-[11px] xl:text-xs font-bold uppercase tracking-wider transition-colors whitespace-nowrap';
-  const linkIdle = 'text-softBrown hover:bg-warmGold/5 hover:text-warmGold';
-  const linkActive = 'text-warmGold bg-warmGold/5';
+  const shellClass = isHomePage
+    ? 'absolute left-0 top-0 z-[100] w-full bg-gradient-to-b from-black/55 via-black/15 to-transparent'
+    : 'fixed inset-x-0 top-0 z-50 border-b border-beige/35 bg-cream/95 shadow-[0_14px_40px_rgba(44,44,44,0.08)] backdrop-blur-xl';
+  const textTone = lightHeader ? 'text-white' : 'text-charcoal';
+  const searchBorderTone = lightHeader ? 'border-white/60 focus-within:border-white' : 'border-softBrown/35 focus-within:border-charcoal';
+  const searchInputTone = lightHeader
+    ? 'text-white placeholder:text-white/70'
+    : 'text-charcoal placeholder:text-softBrown/70';
+  const mobileDrawerTone = lightHeader ? 'border-white/12 bg-[rgba(24,20,18,0.92)] text-white' : 'border-beige/30 bg-cream/98 text-charcoal';
 
   return (
-    <header
-      ref={headerRef}
-      className="fixed inset-x-0 top-0 z-50 glass border-b border-beige/30"
-      id="main-header"
-    >
-      <div className="mx-auto flex h-[72px] lg:h-[84px] max-w-[1600px] items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
-        
-        {/* LEFT: Mobile Menu Toggle & Logo */}
-        <div className="flex flex-1 lg:flex-none items-center gap-4">
+    <header ref={headerRef} className={shellClass} id="main-header">
+      <div className="px-4 pt-4 sm:px-6 lg:px-12">
+        <div className="flex h-14 items-center justify-between lg:hidden">
           <button
             type="button"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-beige text-charcoal lg:hidden"
+            className={`inline-flex items-center justify-center ${textTone} transition-opacity duration-200 hover:opacity-70`}
             aria-label="Toggle menu"
+            aria-expanded={isMobileOpen}
             onClick={(e) => {
               e.stopPropagation();
-              setIsMobileOpen((o) => !o);
+              setIsMobileOpen((open) => !open);
             }}
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
               {isMobileOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -70,135 +140,161 @@ const Header = () => {
             </svg>
           </button>
 
-          <Link
-            to="/"
-            className="min-w-0 flex items-center gap-2 lg:gap-3 shrink-0"
-            aria-label="Dazzling Luxe home"
-          >
-            <img src="/logo.png" alt="Dazzling Luxe" className="h-8 md:h-10 w-auto object-contain" />
-            <div className="flex flex-col">
-              <span className="font-heading text-lg lg:text-xl font-semibold tracking-widest text-charcoal uppercase leading-none">
-                Dazzling
-              </span>
-              <span className="font-serif text-[10px] lg:text-xs tracking-widest text-warmGold uppercase">
-                Luxe
-              </span>
-            </div>
-          </Link>
-        </div>
+          <BrandMark light={lightHeader} />
 
-        {/* MIDDLE: Search */}
-        <div className="hidden lg:flex flex-1 max-w-lg mx-auto px-4">
-          <form className="relative w-full group" onSubmit={handleSearch}>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search our jewelry collection..."
-              className="w-full rounded-full border border-beige/60 bg-cream/50 px-5 py-2.5 pl-11 text-sm text-charcoal transition-all placeholder:text-softBrown/60 focus:border-warmGold focus:bg-white focus:outline-none focus:ring-2 focus:ring-warmGold/20"
-            />
-            <button type="submit" className="absolute left-4 top-1/2 -translate-y-1/2 text-softBrown transition-colors group-focus-within:text-warmGold">
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
-          </form>
-        </div>
-
-        {/* RIGHT: Navigation & Cart */}
-        <div className="flex shrink-0 items-center justify-end gap-2 lg:gap-4">
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Primary navigation">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.label}
-                to={link.to}
-                className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkIdle}`}
-              >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-          
-          <div className="flex items-center gap-2 pl-2 lg:border-l lg:border-beige/40 lg:ml-2 text-right justify-end ml-auto">
-            <Link
-              to="/account"
-              className="hidden rounded-full border border-beige/60 p-2.5 text-softBrown transition-all hover:border-warmGold hover:text-warmGold hover:bg-warmGold/5 lg:inline-flex"
-              aria-label="Account"
-            >
-              <svg className="h-4 w-4 xl:h-5 xl:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+          <div className="flex items-center gap-4">
+            <IconButton label="Account" light={lightHeader} to="/account">
+              <svg className="h-[22px] w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-            </Link>
-            <Link
-              to="/cart"
-              className="relative inline-flex h-10 w-10 xl:h-11 xl:w-11 shrink-0 items-center justify-center rounded-full border border-beige/60 text-softBrown transition-all hover:border-warmGold hover:text-warmGold hover:bg-warmGold/5"
-              aria-label="Open cart"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4 xl:h-5 xl:w-5" fill="none" stroke="currentColor" strokeWidth="2">
+            </IconButton>
+
+            <Link to="/cart" className={`relative inline-flex items-center justify-center ${lightHeader ? 'text-white hover:opacity-70' : 'text-charcoal hover:opacity-65'} transition-opacity duration-200`} aria-label="Cart">
+              <svg className="h-[22px] w-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
                 <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <path d="M16 10a4 4 0 01-8 0" />
               </svg>
-              {totalQuantity > 0 && (
-                <span className="absolute -right-1 -top-1 flex h-4 min-w-[16px] xl:h-5 xl:min-w-[20px] items-center justify-center rounded-full bg-warmGold px-1 text-[10px] xl:text-xs font-bold text-white shadow-sm">
+              {totalQuantity > 0 ? (
+                <span className="absolute -right-2 -top-2 text-[10px] font-medium text-current">
                   {totalQuantity}
                 </span>
-              )}
+              ) : null}
             </Link>
           </div>
         </div>
 
-      </div>
+        <div className="hidden lg:block">
+          <div className="grid h-14 grid-cols-[minmax(0,1fr)_420px_minmax(0,1fr)] items-center gap-8">
+            <div className="justify-self-start">
+              <BrandMark light={lightHeader} />
+            </div>
 
-      {/* Mobile Menu Content */}
-      {isMobileOpen && (
-        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-beige/30 bg-cream/98 px-4 pb-6 pt-4 backdrop-blur-md lg:hidden shadow-xl">
-          
-          <form className="relative w-full mb-6" onSubmit={handleSearch}>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search..."
-              className="w-full rounded-lg border border-beige bg-white/50 px-4 py-3 pl-10 text-sm focus:border-warmGold focus:outline-none focus:ring-1 focus:ring-warmGold"
-            />
-            <svg className="absolute left-3 top-3.5 h-4 w-4 text-softBrown" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </form>
+            <form className={`group relative w-[420px] border-b transition-colors duration-200 ${searchBorderTone}`} onSubmit={handleSearch}>
+              <button
+                type="submit"
+                className={`absolute left-0 top-1/2 -translate-y-1/2 ${lightHeader ? 'text-white/80 hover:text-white' : 'text-softBrown hover:text-charcoal'} transition-colors duration-200`}
+                aria-label="Submit search"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search"
+                className={`w-full border-0 bg-transparent pb-1.5 pl-7 text-sm tracking-[0.05em] outline-none ${searchInputTone}`}
+              />
+            </form>
 
-          <nav className="grid gap-1.5" aria-label="Mobile menu">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.label}
-                to={link.to}
-                className={({ isActive }) =>
-                  `rounded-lg px-4 py-3 text-sm font-bold uppercase tracking-wide transition-colors ${isActive ? 'bg-warmGold/10 text-warmGold' : 'text-softBrown hover:bg-warmGold/5 hover:text-warmGold'}`
-                }
-                onClick={() => setIsMobileOpen(false)}
-              >
-                {link.label}
-              </NavLink>
-            ))}
-            
-            <div className="mt-4 pt-4 border-t border-beige/40">
-              <Link
-                to="/account"
-                className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-bold uppercase tracking-wide text-softBrown hover:bg-warmGold/5 hover:text-warmGold"
-                onClick={() => setIsMobileOpen(false)}
-              >
-                <svg className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+            <div className="flex items-center justify-self-end gap-6">
+              <IconButton label="Wishlist" light={lightHeader}>
+                <svg className="h-[22px] w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.75 8.5A4.75 4.75 0 019.5 3.75c1.58 0 3.02.77 3.9 2.03a4.74 4.74 0 013.85-2.03A4.75 4.75 0 0122 8.5c0 5.25-6.24 8.95-8.6 11.2a1 1 0 01-1.4 0C9.64 17.45 3.4 13.75 3.4 8.5z" />
+                </svg>
+              </IconButton>
+
+              <IconButton label="Store Locator" light={lightHeader}>
+                <svg className="h-[22px] w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21s6-5.4 6-11a6 6 0 10-12 0c0 5.6 6 11 6 11z" />
+                  <circle cx="12" cy="10" r="2.3" />
+                </svg>
+              </IconButton>
+
+              <IconButton label="Account" light={lightHeader} to="/account">
+                <svg className="h-[22px] w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-                My Account
+              </IconButton>
+
+              <Link
+                to="/cart"
+                className={`relative inline-flex items-center justify-center transition-opacity duration-200 ${
+                  lightHeader ? 'text-white hover:opacity-70' : 'text-charcoal hover:opacity-65'
+                }`}
+                aria-label="Cart"
+              >
+                <svg className="h-[22px] w-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <path d="M16 10a4 4 0 01-8 0" />
+                </svg>
+                {totalQuantity > 0 ? (
+                  <span className="absolute -right-2 -top-2 text-[10px] font-medium text-current">
+                    {totalQuantity}
+                  </span>
+                ) : null}
               </Link>
             </div>
+          </div>
+
+          <nav className="flex h-10 items-center justify-start gap-5 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden xl:justify-center xl:gap-9" aria-label="Primary navigation">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                className={`whitespace-nowrap border-b border-transparent pb-0.5 text-[13px] font-normal tracking-[0.04em] transition-opacity duration-200 hover:opacity-75 ${
+                  item.highlight
+                    ? 'text-[#E8A87C]'
+                    : lightHeader
+                      ? 'text-white'
+                      : 'text-charcoal'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
-      )}
+      </div>
+
+      {isMobileOpen ? (
+        <div className={`border-t px-4 pb-6 pt-4 shadow-2xl lg:hidden ${mobileDrawerTone}`}>
+          <form className={`mb-5 border-b ${lightHeader ? 'border-white/40' : 'border-softBrown/35'}`} onSubmit={handleSearch}>
+            <div className="relative">
+              <button
+                type="submit"
+                className={`absolute left-0 top-1/2 -translate-y-1/2 ${lightHeader ? 'text-white/80' : 'text-softBrown'}`}
+                aria-label="Submit search"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search"
+                className={`w-full border-0 bg-transparent pb-2 pl-7 text-sm tracking-[0.05em] outline-none ${searchInputTone}`}
+              />
+            </div>
+          </form>
+
+          <nav className="grid gap-3" aria-label="Mobile menu">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                className={`text-sm tracking-[0.08em] transition-opacity duration-200 hover:opacity-75 ${
+                  item.highlight
+                    ? 'text-[#E8A87C]'
+                    : lightHeader
+                      ? 'text-white'
+                      : 'text-charcoal'
+                }`}
+                onClick={() => setIsMobileOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 };
 
 export default Header;
-
