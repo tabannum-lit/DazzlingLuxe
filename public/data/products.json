@@ -1,0 +1,329 @@
+[
+  {
+    "id": 1,
+    "name": "Eternal Bloom Pendant",
+    "price": 89,
+    "originalPrice": 110,
+    "category": "Jewelry",
+    "subcategory": "Necklaces",
+    "rating": 4.9,
+    "reviewCount": 156,
+    "featured": true,
+    "newArrival": true,
+    "images": [
+      "/images/products/flower-necklace.png",
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "A delicate pendant featuring a beautifully preserved real flower, capturing nature's fleeting beauty in a timeless keepsake you can wear close to your heart.",
+    "story": "Inspired by the moment a bride wanted to keep her wedding bouquet forever. Each pendant holds a real flower, carefully preserved to last a lifetime.",
+    "details": ["Preserved real flower", "Gold-plated chain", "Adjustable 16-20 inch length", "Hypoallergenic"],
+    "compatibleWith": [4, 5, 7]
+  },
+  {
+    "id": 2,
+    "name": "Garden Memory Ring",
+    "price": 75,
+    "category": "Jewelry",
+    "subcategory": "Rings",
+    "rating": 4.8,
+    "reviewCount": 98,
+    "featured": true,
+    "images": [
+      "/images/products/flower-ring.png",
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "A stunning ring featuring a tiny preserved bloom encased in a crystal-clear dome, a miniature garden you carry everywhere.",
+    "story": "Born from the idea that every garden holds memories worth keeping. This ring lets you carry a piece of your favorite garden with you.",
+    "details": ["Preserved miniature bloom", "Gold-plated band", "Available in sizes 5-9", "Tarnish-resistant"],
+    "compatibleWith": [1, 5, 7]
+  },
+  {
+    "id": 3,
+    "name": "Wildflower Charm Bracelet",
+    "price": 95,
+    "originalPrice": 120,
+    "category": "Jewelry",
+    "subcategory": "Bracelets",
+    "rating": 4.7,
+    "reviewCount": 134,
+    "featured": true,
+    "images": [
+      "/images/products/flower-bracelet.png",
+      "https://images.unsplash.com/photo-1611107683227-e9060eccd846?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Multiple tiny wildflowers preserved in delicate clear charms, linked together on a golden chain bracelet.",
+    "story": "Each charm holds a different wildflower, telling the story of a meadow frozen in time. Perfect for those who find beauty in nature's smallest details.",
+    "details": ["Multiple preserved wildflowers", "Gold-plated chain links", "Adjustable clasp", "Handcrafted"],
+    "compatibleWith": [1, 2, 4]
+  },
+  {
+    "id": 4,
+    "name": "Petal Drop Earrings",
+    "price": 65,
+    "category": "Jewelry",
+    "subcategory": "Earrings",
+    "rating": 4.6,
+    "reviewCount": 87,
+    "newArrival": true,
+    "images": [
+      "https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Teardrop-shaped earrings with preserved flower petals suspended in crystal-clear settings, catching light beautifully.",
+    "story": "Designed for the woman who wants to carry a whisper of nature's elegance wherever she goes.",
+    "details": ["Preserved flower petals", "Gold-plated hooks", "Lightweight design", "Hypoallergenic hooks"],
+    "compatibleWith": [1, 3, 7]
+  },
+  {
+    "id": 5,
+    "name": "Bridal Bouquet Locket",
+    "price": 135,
+    "category": "Jewelry",
+    "subcategory": "Necklaces",
+    "rating": 4.9,
+    "reviewCount": 201,
+    "featured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Transform your wedding bouquet into a forever keepsake. This locket holds preserved petals from your most cherished flowers.",
+    "story": "Created for brides who can't bear to let their bouquet wilt away. Send us your wedding flowers, and we'll preserve their beauty in this elegant locket.",
+    "details": ["Custom-preserved bridal flowers", "Sterling silver locket", "Engraving available", "Gift box included"],
+    "compatibleWith": [1, 2, 7]
+  },
+  {
+    "id": 6,
+    "name": "Rose Garden Coaster Set",
+    "price": 55,
+    "originalPrice": 70,
+    "category": "Coasters & Suncatchers",
+    "subcategory": "Coasters",
+    "rating": 4.8,
+    "reviewCount": 112,
+    "featured": true,
+    "images": [
+      "/images/products/flower-coaster.png",
+      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "A set of four handcrafted coasters featuring real preserved rose petals, bringing nature's beauty to your table.",
+    "story": "Every coaster is unique because every flower is unique. These functional art pieces turn an ordinary table into a conversation starter.",
+    "details": ["Set of 4 coasters", "Real preserved rose petals", "Heat-resistant surface", "Cork backing"],
+    "compatibleWith": [8, 9, 10]
+  },
+  {
+    "id": 7,
+    "name": "Lavender Fields Necklace",
+    "price": 79,
+    "category": "Jewelry",
+    "subcategory": "Necklaces",
+    "rating": 4.7,
+    "reviewCount": 89,
+    "newArrival": true,
+    "images": [
+      "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Real preserved lavender sprigs captured in a teardrop pendant. Carries the calming essence of a lavender field.",
+    "story": "For those who find peace in lavender fields. This necklace holds a real sprig of lavender, preserved to keep its beauty forever.",
+    "details": ["Preserved real lavender", "Gold-plated setting", "18-inch chain", "Gift-ready packaging"],
+    "compatibleWith": [1, 4, 5]
+  },
+  {
+    "id": 8,
+    "name": "Sunrise Suncatcher",
+    "price": 45,
+    "category": "Coasters & Suncatchers",
+    "subcategory": "Suncatchers",
+    "rating": 4.9,
+    "reviewCount": 176,
+    "featured": true,
+    "newArrival": true,
+    "images": [
+      "/images/products/flower-suncatcher.png",
+      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "A circular suncatcher filled with preserved wildflowers that dance with light, creating beautiful patterns on your walls.",
+    "story": "Hang it in your window and watch as sunlight transforms preserved flowers into a kaleidoscope of color and shadow.",
+    "details": ["Preserved wildflowers", "Golden hanging chain", "6-inch diameter", "Suction cup included"],
+    "compatibleWith": [6, 9, 10]
+  },
+  {
+    "id": 9,
+    "name": "Botanical Art Coaster",
+    "price": 35,
+    "category": "Coasters & Suncatchers",
+    "subcategory": "Coasters",
+    "rating": 4.5,
+    "reviewCount": 67,
+    "images": [
+      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "A single statement coaster with an artistic arrangement of preserved ferns and tiny blooms. Functional art for your home.",
+    "story": "Each coaster is individually crafted, making yours truly one-of-a-kind. A perfect blend of art and utility.",
+    "details": ["Preserved ferns & blooms", "4-inch diameter", "Heat-resistant", "Non-slip base"],
+    "compatibleWith": [6, 8, 10]
+  },
+  {
+    "id": 10,
+    "name": "Moonlight Suncatcher",
+    "price": 52,
+    "category": "Coasters & Suncatchers",
+    "subcategory": "Suncatchers",
+    "rating": 4.6,
+    "reviewCount": 93,
+    "newArrival": true,
+    "images": [
+      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "A crescent moon-shaped suncatcher with preserved night-blooming flowers, creating magical light patterns at golden hour.",
+    "story": "Inspired by flowers that bloom under moonlight. This piece brings a touch of midnight garden magic to your window.",
+    "details": ["Preserved night-bloom flowers", "Crescent moon shape", "Gold chain hanger", "Handcrafted"],
+    "compatibleWith": [8, 6, 9]
+  },
+  {
+    "id": 11,
+    "name": "Memory Bouquet Frame",
+    "price": 110,
+    "originalPrice": 140,
+    "category": "Personalized Keepsakes",
+    "subcategory": "Frames",
+    "rating": 4.9,
+    "reviewCount": 189,
+    "featured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Send us your special flowers and we'll preserve them in an elegant shadow box frame. A perfect way to keep your memories alive.",
+    "story": "Whether it's your wedding bouquet, anniversary roses, or a loved one's memorial flowers, we preserve your memories beautifully.",
+    "details": ["Custom flower preservation", "Gold-accented frame", "8x10 inch display", "UV-protective glass"],
+    "compatibleWith": [12, 13, 14]
+  },
+  {
+    "id": 12,
+    "name": "Anniversary Petal Box",
+    "price": 85,
+    "category": "Personalized Keepsakes",
+    "subcategory": "Keepsake Boxes",
+    "rating": 4.8,
+    "reviewCount": 124,
+    "featured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "A handcrafted wooden keepsake box with a preserved flower lid, perfect for storing love letters, rings, or tiny treasures.",
+    "story": "Every anniversary deserves to be remembered. This box preserves the flower from your celebration right on its lid.",
+    "details": ["Custom-preserved flower lid", "Wooden keepsake box", "Velvet interior lining", "Personalized engraving"],
+    "compatibleWith": [11, 13, 14]
+  },
+  {
+    "id": 13,
+    "name": "Baby's First Bloom",
+    "price": 72,
+    "category": "Personalized Keepsakes",
+    "subcategory": "Baby Keepsakes",
+    "rating": 4.9,
+    "reviewCount": 98,
+    "newArrival": true,
+    "images": [
+      "https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Capture baby's birth month flower in a beautiful preserved ornament. A keepsake that grows more precious with every year.",
+    "story": "New parents cherish every moment. This keepsake preserves the birth month flower as a beautiful reminder of the day everything changed.",
+    "details": ["Birth month flower", "Crystal-clear preservation", "Gold-accented base", "Birth details card"],
+    "compatibleWith": [11, 12, 14]
+  },
+  {
+    "id": 14,
+    "name": "Memorial Garden Stone",
+    "price": 98,
+    "category": "Personalized Keepsakes",
+    "subcategory": "Memorial",
+    "rating": 4.9,
+    "reviewCount": 167,
+    "images": [
+      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Transform funeral flowers into a lasting tribute. A polished stone with preserved petals embedded, honoring your loved one's memory.",
+    "story": "Grief and beauty intertwined. This memorial stone holds the preserved flowers from a farewell, keeping their memory blooming forever.",
+    "details": ["Custom funeral flower preservation", "Polished stone base", "Indoor/outdoor display", "Personalized plaque"],
+    "compatibleWith": [11, 12, 13]
+  },
+  {
+    "id": 15,
+    "name": "Daisy Chain Anklet",
+    "price": 48,
+    "category": "Jewelry",
+    "subcategory": "Anklets",
+    "rating": 4.5,
+    "reviewCount": 56,
+    "images": [
+      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Tiny preserved daisies linked along a delicate gold chain anklet. Summer's essence captured in jewelry.",
+    "story": "Remember making daisy chains as a child? This anklet captures that carefree joy in preserved blooms you can wear.",
+    "details": ["Preserved real daisies", "Gold-plated chain", "Adjustable 9-11 inch", "Water-resistant"],
+    "compatibleWith": [1, 3, 4]
+  },
+  {
+    "id": 16,
+    "name": "Forget-Me-Not Studs",
+    "price": 42,
+    "category": "Jewelry",
+    "subcategory": "Earrings",
+    "rating": 4.7,
+    "reviewCount": 71,
+    "newArrival": true,
+    "images": [
+      "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Delicate forget-me-not flowers preserved in tiny round stud earrings. A meaningful gift for someone you never want to forget.",
+    "story": "The forget-me-not flower has symbolized remembrance for centuries. These studs carry that beautiful tradition forward.",
+    "details": ["Real forget-me-not flowers", "Sterling silver posts", "8mm diameter", "Push-back closure"],
+    "compatibleWith": [4, 7, 15]
+  },
+  {
+    "id": 17,
+    "name": "Rainbow Petal Suncatcher",
+    "price": 58,
+    "category": "Coasters & Suncatchers",
+    "subcategory": "Suncatchers",
+    "rating": 4.8,
+    "reviewCount": 83,
+    "featured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "A spectrum of colorful preserved petals arranged in a circular suncatcher, painting your room with nature's own rainbow.",
+    "story": "We collected petals from seven different flowers, each representing a color of the rainbow, to create this joyful piece.",
+    "details": ["Multi-color preserved petals", "8-inch diameter", "Crystal-clear clarity", "Brass chain included"],
+    "compatibleWith": [8, 10, 6]
+  },
+  {
+    "id": 18,
+    "name": "Love Letter Keepsake",
+    "price": 125,
+    "category": "Personalized Keepsakes",
+    "subcategory": "Custom",
+    "rating": 4.9,
+    "reviewCount": 145,
+    "featured": true,
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80"
+    ],
+    "description": "Combine a handwritten love letter with preserved flowers from a special occasion. An heirloom that tells your unique love story.",
+    "story": "Words and flowers together create the most powerful memories. Send us both, and we'll create a keepsake that captures your love story.",
+    "details": ["Custom letter & flower combination", "Archival-quality preservation", "Gold-leaf accents", "Presentation box included"],
+    "compatibleWith": [11, 12, 14]
+  }
+]
