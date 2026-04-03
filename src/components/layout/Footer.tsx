@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link to="/" className="inline-block font-heading text-2xl font-semibold tracking-tight text-charcoal">
-              Aethelgard <span className="italic text-warmGold">Blooms</span>
+              <span className="italic text-warmGold">Dazzling Luxe</span>
             </Link>
             <p className="mt-4 text-sm text-softBrown leading-relaxed">
               Handmade jewelry and displays from real dried flowers—plus respectful memorial work with hair, pet fur, and your own

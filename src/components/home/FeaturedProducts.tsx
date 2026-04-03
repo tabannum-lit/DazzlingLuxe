@@ -16,7 +16,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-12">
         <div>
           <p className="text-warmGold uppercase tracking-[0.2em] text-sm font-bold">Handpicked</p>
-          <h2 className="font-heading text-4xl md:text-5xl text-charcoal mt-3">Featured Keepsakes</h2>
+          <h2 className="font-heading text-4xl md:text-5xl text-charcoal mt-3">Featured Jewelry Pieces</h2>
         </div>
         <Link
           to="/jewelry"
