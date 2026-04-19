@@ -85,10 +85,26 @@ const CartPage = ({ products }: CartPageProps) => {
             <span className="font-bold text-charcoal">Total</span>
             <span className="text-2xl font-bold text-charcoal">{formatCurrency(subtotal)}</span>
           </div>
-          <button className="mt-6 w-full py-3.5 rounded-full bg-warmGold text-white font-bold uppercase tracking-wider hover:bg-deepGold transition-colors" id="checkout-button">
-            Secure Checkout
-          </button>
-          <button className="mt-3 w-full text-sm text-softBrown underline hover:text-warmGold transition-colors" onClick={clearCart}>
+          <div className="mt-6 flex flex-col gap-4 text-center">
+            <p className="text-sm font-medium leading-relaxed text-charcoal border border-warmGold/40 bg-warmGold/10 p-4 rounded-xl">
+              We are working on website payment method for now and will update later. For now, please buy from these socials:
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-lg border border-pink-200 bg-pink-50 hover:bg-pink-100 py-2.5 text-sm font-bold text-pink-700 transition-colors">
+                Instagram
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-lg border border-blue-200 bg-blue-50 hover:bg-blue-100 py-2.5 text-sm font-bold text-blue-700 transition-colors">
+                Facebook
+              </a>
+              <a href="https://tiktok.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 py-2.5 text-sm font-bold text-gray-800 transition-colors">
+                TikTok
+              </a>
+              <a href="https://etsy.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-lg border border-orange-200 bg-orange-50 hover:bg-orange-100 py-2.5 text-sm font-bold text-orange-700 transition-colors">
+                Etsy
+              </a>
+            </div>
+          </div>
+          <button className="mt-4 w-full text-sm text-softBrown underline hover:text-warmGold transition-colors" onClick={clearCart}>
             Clear Cart
           </button>
         </aside>

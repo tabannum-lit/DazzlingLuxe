@@ -2,18 +2,30 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'rea
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 
+const getHolidayName = () => {
+  const month = new Date().getMonth();
+  switch (month) {
+    case 0: return "New Year Specials";
+    case 1: return "Valentine's Day";
+    case 3: 
+    case 4: return "Mother's Day";
+    case 5: return "Father's Day";
+    case 9: return "Halloween";
+    case 10: return "Thanksgiving";
+    case 11: return "Christmas";
+    default: return "Seasonal Specials";
+  }
+};
+
 const navItems = [
   { label: 'New & featured', to: '/' },
+  { label: getHolidayName(), to: '/holiday', highlight: true },
   { label: 'Shop by', to: '/jewelry' },
-  { label: 'Charms', to: '/personalized-keepsakes' },
   { label: 'Bracelets', to: '/jewelry' },
   { label: 'Necklaces', to: '/jewelry' },
   { label: 'Rings', to: '/jewelry' },
   { label: 'Earrings', to: '/jewelry' },
-  { label: 'Engraving', to: '/personalized-keepsakes' },
-  { label: 'Lab-grown diamonds', to: '/sale' },
-  { label: 'Gifts', to: '/send-your-flowers' },
-  { label: 'Collections', to: '/jewelry' },
+  { label: 'Personalised gift', to: '/send-your-flowers' },
   { label: 'Sale', to: '/sale', highlight: true },
 ];
 
@@ -230,7 +242,7 @@ const Header = () => {
             </div>
           </div>
 
-          <nav className="flex h-10 items-center justify-start gap-5 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden xl:justify-center xl:gap-9" aria-label="Primary navigation">
+          <nav className="flex h-10 items-center justify-end gap-5 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden xl:justify-end xl:gap-9" aria-label="Primary navigation">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -273,7 +285,7 @@ const Header = () => {
             </div>
           </form>
 
-          <nav className="grid gap-3" aria-label="Mobile menu">
+          <nav className="grid gap-3 text-right" aria-label="Mobile menu">
             {navItems.map((item) => (
               <Link
                 key={item.label}
