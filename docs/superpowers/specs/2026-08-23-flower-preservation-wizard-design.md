@@ -176,6 +176,18 @@ business owner.
   as an already-loaded data-URL string parameter so it stays a pure,
   synchronous, testable function, separate from the browser-only
   `loadLogoDataUrl()` fetch helper.
+- **Test-environment note (verified by spike):** jsdom has no
+  `URL.createObjectURL`/`revokeObjectURL` (needed by `InvoiceStep` for the
+  download link) — polyfilled in `setupTests.ts`.
+- **Test-environment gotcha (verified by spike):** this project's
+  `react-scripts` jest config sets `resetMocks: true`, which silently wipes
+  any `jest.fn()`/`jest.spyOn()` implementation configured outside a
+  `beforeEach` before every test runs (a module-scope
+  `jest.spyOn(...).mockResolvedValue(...)` reverts to a no-op returning
+  `undefined`, even on the first test). All mock/spy implementations —
+  including the setupTests.ts polyfills above, which use plain functions
+  instead for exactly this reason — must be configured inside `beforeEach`
+  or the test body, never at module scope.
 
 ## Open items intentionally left as placeholders
 

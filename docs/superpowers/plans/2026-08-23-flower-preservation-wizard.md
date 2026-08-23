@@ -18,8 +18,9 @@
 - Currency display uses the existing `formatCurrency` helper (`src/utils/currency.ts`, `en-CA`/`CAD`) everywhere a price is shown, on-screen and in the PDF.
 - `RETURN_FEE_PLACEHOLDER` and `SOCIAL_LINKS` values are deliberate placeholders for the business owner to fill in later — do not invent real-looking values.
 - The consent clause text must be reproduced verbatim (see Task 1).
-- `src/setupTests.ts` already polyfills `TextEncoder`/`TextDecoder`/`crypto.subtle` for the jsdom test environment (added in a prior spike commit) — later tasks' tests rely on this and don't need to redo it.
+- `src/setupTests.ts` already polyfills `TextEncoder`/`TextDecoder`/`crypto.subtle`/`URL.createObjectURL`/`URL.revokeObjectURL` for the jsdom test environment (added in a prior spike commit) — later tasks' tests rely on this and don't need to redo it.
 - `jspdf` is already installed (`package.json` has `"jspdf": "^4.2.1"`).
+- This project's jest config (`react-scripts`) sets `resetMocks: true`. Any `jest.fn()` or `jest.spyOn()` implementation configured outside a `beforeEach`/test body is silently wiped (reverts to a no-op returning `undefined`) before every test runs — confirmed by spike. Always configure mock implementations inside `beforeEach` or the test itself, never at module scope.
 
 ---
 
@@ -1258,8 +1259,16 @@ import userEvent from '@testing-library/user-event';
 import SendYourFlowersWizard from './SendYourFlowersWizard';
 import * as invoiceGenerator from '../../utils/invoiceGenerator';
 
-jest.spyOn(invoiceGenerator, 'loadLogoDataUrl').mockResolvedValue('data:image/png;base64,AAAA');
-jest.spyOn(invoiceGenerator, 'buildInvoicePdfBlob').mockReturnValue(new Blob(['%PDF-1.4'], { type: 'application/pdf' }));
+// IMPORTANT: this project's jest config sets resetMocks: true, which wipes
+// any jest.fn()/jest.spyOn() implementation configured outside a beforeEach
+// before every test runs (confirmed by spike — a module-scope spyOn silently
+// reverts to a no-op returning undefined). These spies MUST be (re)configured
+// inside beforeEach, not at module scope, or the wizard will hang waiting on
+// a resolved promise that never comes.
+beforeEach(() => {
+  jest.spyOn(invoiceGenerator, 'loadLogoDataUrl').mockResolvedValue('data:image/png;base64,AAAA');
+  jest.spyOn(invoiceGenerator, 'buildInvoicePdfBlob').mockReturnValue(new Blob(['%PDF-1.4'], { type: 'application/pdf' }));
+});
 
 test('walks through all five steps to a generated invoice', async () => {
   render(<SendYourFlowersWizard />);
