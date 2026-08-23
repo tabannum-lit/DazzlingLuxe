@@ -25,23 +25,23 @@ import MemorialKeepsakesPage from './pages/MemorialKeepsakesPage';
 import AccountPage from './pages/AccountPage';
 
 const pageTitles: Record<string, string> = {
-  '/': 'Aethelgard Blooms — Handmade Botanical Jewelry',
-  '/sale': 'On Sale | Aethelgard Blooms',
-  '/jewelry': 'Floral Jewelry | Aethelgard Blooms',
-  '/coasters-suncatchers': 'Displays — Coasters & Suncatchers | Aethelgard Blooms',
-  '/displays': 'Displays | Aethelgard Blooms',
-  '/personalized-keepsakes': 'Personalised Jewelry | Aethelgard Blooms',
-  '/send-your-flowers': 'Preserve Your Flowers | Aethelgard Blooms',
-  '/memorial-keepsakes': 'Memorial Keepsakes | Aethelgard Blooms',
-  '/our-process': 'Our Process | Aethelgard Blooms',
-  '/wedding': 'Wedding | Aethelgard Blooms',
-  '/funeral-wake': 'Funeral & Wake Flowers | Aethelgard Blooms',
-  '/florals': 'From Your Flowers | Aethelgard Blooms',
-  '/about': 'About | Aethelgard Blooms',
-  '/reviews': 'Reviews | Aethelgard Blooms',
-  '/contact': 'Contact | Aethelgard Blooms',
-  '/cart': 'Your Cart | Aethelgard Blooms',
-  '/account': 'Account | Aethelgard Blooms',
+  '/': 'Dazzling Luxe — Handmade Botanical Jewelry',
+  '/sale': 'On Sale | Dazzling Luxe',
+  '/jewelry': 'Floral Jewelry | Dazzling Luxe',
+  '/coasters-suncatchers': 'Displays — Coasters & Suncatchers | Dazzling Luxe',
+  '/displays': 'Displays | Dazzling Luxe',
+  '/personalized-keepsakes': 'Personalised Jewelry | Dazzling Luxe',
+  '/send-your-flowers': 'Preserve Your Flowers | Dazzling Luxe',
+  '/memorial-keepsakes': 'Memorial Keepsakes | Dazzling Luxe',
+  '/our-process': 'Our Process | Dazzling Luxe',
+  '/wedding': 'Wedding | Dazzling Luxe',
+  '/funeral-wake': 'Funeral & Wake Flowers | Dazzling Luxe',
+  '/florals': 'From Your Flowers | Dazzling Luxe',
+  '/about': 'About | Dazzling Luxe',
+  '/reviews': 'Reviews | Dazzling Luxe',
+  '/contact': 'Contact | Dazzling Luxe',
+  '/cart': 'Your Cart | Dazzling Luxe',
+  '/account': 'Account | Dazzling Luxe',
 };
 
 const ScrollToTop = () => {
@@ -59,10 +59,10 @@ const RoutedExperience = () => {
   useEffect(() => {
     const p = location.pathname;
     if (p.startsWith('/gifts/')) {
-      document.title = 'Gifts | Aethelgard Blooms';
+      document.title = 'Gifts | Dazzling Luxe';
       return;
     }
-    document.title = pageTitles[p] ?? 'Aethelgard Blooms';
+    document.title = pageTitles[p] ?? 'Dazzling Luxe';
   }, [location.pathname]);
 
   return (

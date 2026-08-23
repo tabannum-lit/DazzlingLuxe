@@ -30,27 +30,35 @@ const navItems = [
 ];
 
 const BrandMark = ({ light }: { light: boolean }) => (
-  <Link to="/" className="relative inline-flex items-start pt-2" aria-label="Dazzling Luxe home">
-    <span
-      className={`whitespace-nowrap font-heading text-[22px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 sm:text-[24px] lg:text-[26px] ${
-        light ? 'text-white' : 'text-charcoal'
-      }`}
-    >
-      Dazzling Luxe
-    </span>
-    <svg
-      className={`absolute left-[42%] top-0 h-[10px] w-[10px] -translate-x-1/2 transition-colors duration-300 ${
-        light ? 'text-white' : 'text-warmGold'
-      }`}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
+  <Link to="/" className="inline-flex items-center gap-2" aria-label="Dazzling Luxe home">
+    <img
+      src="/logo-dazz-transparent.png"
+      alt=""
+      className="h-10 w-auto object-contain sm:h-11 lg:h-12"
       aria-hidden="true"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 18h16l-2-8-6 4-6-4-2 8z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7 10l2-4 3 5 3-5 2 4" />
-    </svg>
+    />
+    <span className="relative inline-flex items-start pt-2">
+      <span
+        className={`whitespace-nowrap font-heading text-[22px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 sm:text-[24px] lg:text-[26px] ${
+          light ? 'text-white' : 'text-charcoal'
+        }`}
+      >
+        Dazzling Luxe
+      </span>
+      <svg
+        className={`absolute left-[42%] top-0 h-[10px] w-[10px] -translate-x-1/2 transition-colors duration-300 ${
+          light ? 'text-white' : 'text-warmGold'
+        }`}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        aria-hidden="true"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 18h16l-2-8-6 4-6-4-2 8z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7 10l2-4 3 5 3-5 2 4" />
+      </svg>
+    </span>
   </Link>
 );
 

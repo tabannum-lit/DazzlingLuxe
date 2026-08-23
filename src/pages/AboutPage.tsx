@@ -4,7 +4,7 @@ const AboutPage = () => {
       {/* Hero */}
       <div className="text-center mb-16">
         <p className="text-warmGold uppercase tracking-[0.2em] text-sm font-bold">Our Story</p>
-        <h1 className="font-heading text-4xl md:text-6xl text-charcoal mt-3">About Aethelgard Blooms</h1>
+        <h1 className="font-heading text-4xl md:text-6xl text-charcoal mt-3">About Dazzling Luxe</h1>
         <div className="mt-6 w-16 h-px bg-warmGold mx-auto" />
       </div>
 
@@ -21,7 +21,7 @@ const AboutPage = () => {
         <div>
           <h2 className="font-heading text-3xl text-charcoal mb-4">Where It All Began</h2>
           <p className="text-softBrown leading-relaxed mb-4">
-            Aethelgard Blooms was born from a simple wish — to keep the beauty of real dried flowers alive in
+            Dazzling Luxe was born from a simple wish — to keep the beauty of real dried flowers alive in
             jewelry you can wear every day. Our Canadian studio preserves wedding bouquets, memorial stems, and
             cherished inclusions with the same care we&apos;d want for our own families.
           </p>

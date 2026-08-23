@@ -1,21 +1,24 @@
 {
-  "short_name": "Aethelgard Blooms",
-  "name": "Aethelgard Blooms — Botanical Jewelry",
+  "short_name": "Dazzling Luxe",
+  "name": "Dazzling Luxe — Botanical Jewelry",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "logoDazzle.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "logo192.png",
+      "src": "logoDazzle.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "logoDazzle.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",

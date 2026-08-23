@@ -67,14 +67,6 @@ const ContactPage = () => {
             </div>
           </div>
 
-          <div className="bg-warmGold/5 rounded-2xl border border-warmGold/20 p-6">
-            <h3 className="font-heading text-xl text-charcoal mb-3">Business Hours</h3>
-            <div className="space-y-1.5 text-sm text-softBrown">
-              <p>Monday – Friday: 9:00 AM – 5:00 PM NST</p>
-              <p>Saturday: 10:00 AM – 3:00 PM NST</p>
-              <p>Sunday: Closed</p>
-            </div>
-          </div>
         </div>
 
         {/* Form */}

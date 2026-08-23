@@ -72,7 +72,7 @@ const HeroSlider = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
               <div className="relative flex min-h-[420px] max-w-xl flex-col justify-center p-8 text-white sm:p-12">
-                <p className="text-sm uppercase tracking-[0.18em] text-pink-100">Aethelgard Blooms</p>
+                <p className="text-sm uppercase tracking-[0.18em] text-pink-100">Dazzling Luxe</p>
                 <h1 className="mt-4 font-heading text-4xl leading-tight sm:text-5xl">{slide.title}</h1>
                 <p className="mt-4 text-base text-pink-50 sm:text-lg">{slide.subtitle}</p>
                 <Link

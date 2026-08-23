@@ -18,8 +18,13 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link to="/" className="inline-block font-heading text-2xl font-semibold tracking-tight text-charcoal">
-              <span className="italic text-warmGold">Dazzling Luxe</span>
+            <Link to="/" className="inline-flex" aria-label="Dazzling Luxe home">
+              <img
+                src="/logoDazzle.png"
+                alt="Dazzling Luxe"
+                className="h-24 w-auto object-contain"
+                loading="lazy"
+              />
             </Link>
             <p className="mt-4 text-sm text-softBrown leading-relaxed">
               Handmade jewelry and displays from real dried flowers—plus respectful memorial work with hair, pet fur, and your own
@@ -101,7 +106,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-6 border-t border-beige/30 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-softBrown">© {new Date().getFullYear()} Aethelgard Blooms. All rights reserved.</p>
+          <p className="text-xs text-softBrown">© {new Date().getFullYear()} Dazzling Luxe. All rights reserved.</p>
           <p className="text-xs text-softBrown">Handmade botanical jewelry · Canada</p>
         </div>
       </div>

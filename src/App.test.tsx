@@ -20,8 +20,8 @@ jest.mock(
   { virtual: true }
 );
 
-test('renders Aethelgard Blooms branding', () => {
+test('renders Dazzling Luxe branding', () => {
   render(<App />);
-  const brand = screen.getByRole('link', { name: /Aethelgard Blooms home/i });
+  const brand = screen.getByRole('link', { name: /Dazzling Luxe home/i });
   expect(brand).toBeInTheDocument();
 });

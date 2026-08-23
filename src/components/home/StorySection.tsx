@@ -21,7 +21,7 @@ const StorySection = () => {
           with care, love, and artistry.
         </p>
         <div className="mt-10 w-16 h-px bg-warmGold mx-auto" />
-        <p className="mt-6 font-heading text-xl text-warmGold">— Aethelgard Blooms</p>
+        <p className="mt-6 font-heading text-xl text-warmGold">— Dazzling Luxe</p>
       </div>
     </section>
   );

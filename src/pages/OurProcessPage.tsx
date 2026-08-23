@@ -31,7 +31,7 @@ const OurProcessPage = () => {
         <p className="text-xs font-bold uppercase tracking-[0.25em] text-warmGold">Transparency</p>
         <h1 className="font-heading mt-3 text-4xl text-charcoal md:text-5xl">Our artisan process</h1>
         <p className="mx-auto mt-4 max-w-2xl text-softBrown">
-          Aethelgard Blooms exists to honour real dried flowers—never plastic substitutes. Every pour is timed by hand.
+          Dazzling Luxe exists to honour real dried flowers—never plastic substitutes. Every pour is timed by hand.
         </p>
       </header>
 

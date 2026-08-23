@@ -19,24 +19,27 @@ const HomePage = ({ products }: HomePageProps) => {
         <CategoryCards />
       </ScrollFade>
       
-      {/* Flower Garden Video before How it Works */}
+      {/* Feature video before How it Works */}
       <ScrollFade>
         <section className="py-16 md:py-24 bg-cream/50 relative overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="mb-10 font-heading text-3xl font-medium text-charcoal md:text-4xl px-4">
-              Botanical Inspiration
+              Dazzling Luxe in Motion
             </h2>
-            <div className="relative mx-auto max-w-5xl rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black/5">
-              <iframe
-                src="https://www.youtube.com/embed/n4s9t9r3tGE?autoplay=1&mute=1&loop=1&playlist=n4s9t9r3tGE&controls=0&showinfo=0&rel=0"
-                title="Beautiful flower garden"
-                className="absolute top-0 left-0 w-full h-full border-0 pointer-events-none"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+            <div className="relative mx-auto aspect-[9/16] w-full max-w-[420px] overflow-hidden rounded-lg bg-black shadow-2xl">
+              <video
+                className="h-full w-full object-contain"
+                src="/images/products/video/dazzl.mp4"
+                title="Dazzling Luxe handcrafted floral jewelry video"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
               />
             </div>
             <p className="mt-8 text-softBrown italic text-lg max-w-2xl mx-auto px-4">
-              From delicate forget-me-nots and dandelion seeds, to sunflowers, daisies, roses, pansies, lavender, baby's breath, and statice. Every bloom tells a story.
+              A closer look at the handcrafted florals, shimmer, and keepsake details behind each piece.
             </p>
           </div>
         </section>
