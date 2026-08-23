@@ -13,7 +13,7 @@ export type ReviewStepProps = {
   error: string | null;
 };
 
-const ReviewStep = ({ details, keepsake, consentChoice, returnFee, total, onConfirm, onBack, generating, error }: ReviewStepProps) => {
+const ReviewStep = ({ details, keepsake, returnFee, total, onConfirm, onBack, generating, error }: ReviewStepProps) => {
   return (
     <section className="max-w-xl mx-auto">
       <div className="text-center mb-10">
@@ -26,6 +26,30 @@ const ReviewStep = ({ details, keepsake, consentChoice, returnFee, total, onConf
           <span>Name</span>
           <span className="font-bold text-charcoal">{details.name}</span>
         </div>
+        {details.email ? (
+          <div className="flex justify-between text-sm text-softBrown">
+            <span>Email</span>
+            <span className="font-bold text-charcoal">{details.email}</span>
+          </div>
+        ) : null}
+        {details.phone ? (
+          <div className="flex justify-between text-sm text-softBrown">
+            <span>Phone</span>
+            <span className="font-bold text-charcoal">{details.phone}</span>
+          </div>
+        ) : null}
+        {details.flowerType ? (
+          <div className="flex justify-between text-sm text-softBrown">
+            <span>Flowers</span>
+            <span className="font-bold text-charcoal">{details.flowerType}</span>
+          </div>
+        ) : null}
+        {details.message ? (
+          <div className="text-sm text-softBrown">
+            <span className="block font-bold text-charcoal mb-1">Your Story</span>
+            <p>{details.message}</p>
+          </div>
+        ) : null}
         <div className="flex justify-between text-sm text-softBrown">
           <span>{keepsake.label}</span>
           <span className="font-bold text-charcoal">{formatCurrency(keepsake.price)}</span>

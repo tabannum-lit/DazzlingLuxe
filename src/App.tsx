@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Layout from './components/layout/Layout';
@@ -10,7 +10,6 @@ import HomePage from './pages/HomePage';
 import JewelryPage from './pages/JewelryPage';
 import CoastersSuncatchersPage from './pages/CoastersSuncatchersPage';
 import PersonalizedKeepsakesPage from './pages/PersonalizedKeepsakesPage';
-import SendYourFlowersPage from './pages/SendYourFlowersPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
 import AboutPage from './pages/AboutPage';
@@ -23,6 +22,8 @@ import StoryLanePage from './pages/StoryLanePage';
 import OurProcessPage from './pages/OurProcessPage';
 import MemorialKeepsakesPage from './pages/MemorialKeepsakesPage';
 import AccountPage from './pages/AccountPage';
+
+const SendYourFlowersPage = lazy(() => import('./pages/SendYourFlowersPage'));
 
 const pageTitles: Record<string, string> = {
   '/': 'Dazzling Luxe — Handmade Botanical Jewelry',
@@ -83,7 +84,14 @@ const RoutedExperience = () => {
             <Route path="/coasters-suncatchers" element={<CoastersSuncatchersPage products={products} />} />
             <Route path="/displays" element={<CoastersSuncatchersPage products={products} />} />
             <Route path="/personalized-keepsakes" element={<PersonalizedKeepsakesPage products={products} />} />
-            <Route path="/send-your-flowers" element={<SendYourFlowersPage />} />
+            <Route
+              path="/send-your-flowers"
+              element={
+                <Suspense fallback={<LoadingSpinner label="Loading..." />}>
+                  <SendYourFlowersPage />
+                </Suspense>
+              }
+            />
             <Route path="/memorial-keepsakes" element={<MemorialKeepsakesPage />} />
             <Route path="/our-process" element={<OurProcessPage />} />
             <Route path="/wedding" element={<StoryLanePage />} />

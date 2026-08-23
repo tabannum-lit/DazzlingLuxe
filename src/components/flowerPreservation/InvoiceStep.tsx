@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { InvoiceData } from './types';
-import { SOCIAL_LINKS } from './config';
+import { SOCIAL_LINKS_PLACEHOLDER } from './config';
 import { formatCurrency } from '../../utils/currency';
 
 export type InvoiceStepProps = {
@@ -12,6 +12,15 @@ export type InvoiceStepProps = {
 const InvoiceStep = ({ invoice, pdfBlob, onStartOver }: InvoiceStepProps) => {
   const pdfUrl = useMemo(() => URL.createObjectURL(pdfBlob), [pdfBlob]);
   const fileName = `dazzling-luxe-invoice-${invoice.invoiceNumber}.pdf`;
+
+  const [canNativeShare] = useState(() => {
+    const nav = navigator as Navigator & { canShare?: (data: { files: File[] }) => boolean };
+    return typeof navigator.share === 'function' && typeof nav.canShare === 'function';
+  });
+
+  useEffect(() => {
+    return () => URL.revokeObjectURL(pdfUrl);
+  }, [pdfUrl]);
 
   const handleShare = async () => {
     const file = new File([pdfBlob], fileName, { type: 'application/pdf' });
@@ -47,25 +56,27 @@ const InvoiceStep = ({ invoice, pdfBlob, onStartOver }: InvoiceStepProps) => {
         Download Invoice
       </a>
 
-      <button
-        type="button"
-        onClick={handleShare}
-        className="mt-4 w-full py-3 rounded-full border border-warmGold text-warmGold font-bold uppercase tracking-wider transition-all hover:bg-warmGold/10"
-      >
-        Share Invoice
-      </button>
+      {canNativeShare ? (
+        <button
+          type="button"
+          onClick={handleShare}
+          className="mt-4 w-full py-3 rounded-full border border-warmGold text-warmGold font-bold uppercase tracking-wider transition-all hover:bg-warmGold/10"
+        >
+          Share Invoice
+        </button>
+      ) : null}
 
       <p className="mt-8 text-sm text-softBrown">
         Please download the invoice above and send it to us on one of our socials so we can confirm your order:
       </p>
       <div className="mt-4 flex justify-center gap-4">
-        <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-warmGold">
+        <a href={SOCIAL_LINKS_PLACEHOLDER.instagram} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-warmGold">
           Instagram
         </a>
-        <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-warmGold">
+        <a href={SOCIAL_LINKS_PLACEHOLDER.facebook} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-warmGold">
           Facebook
         </a>
-        <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-warmGold">
+        <a href={SOCIAL_LINKS_PLACEHOLDER.tiktok} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-warmGold">
           TikTok
         </a>
       </div>

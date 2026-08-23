@@ -44,7 +44,7 @@ export const buildInvoiceData = async (params: {
   const total = calculateTotal(keepsake.price, returnFee);
   const invoiceNumber = generateInvoiceNumber(issuedAt);
   const verificationCode = await computeVerificationCode(
-    buildVerificationPayload({ invoiceNumber, email: customer.email, total, keepsakeId: keepsake.id })
+    buildVerificationPayload({ invoiceNumber, email: customer.email || customer.phone, total, keepsakeId: keepsake.id })
   );
 
   return {
@@ -73,6 +73,9 @@ const CONSENT_TEXT_FOR_PDF = (invoice: InvoiceData): string =>
 
 export const loadLogoDataUrl = async (): Promise<string> => {
   const response = await fetch('/logo-dazz-transparent.png');
+  if (!response.ok) {
+    throw new Error(`Logo fetch failed: ${response.status}`);
+  }
   const blob = await response.blob();
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -82,7 +85,7 @@ export const loadLogoDataUrl = async (): Promise<string> => {
   });
 };
 
-export const buildInvoicePdfBlob = (invoice: InvoiceData, logoDataUrl: string): Blob => {
+export const buildInvoicePdfBlob = (invoice: InvoiceData, logoDataUrl: string | null): Blob => {
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
   const pageWidth = doc.internal.pageSize.getWidth();
   const marginX = 20;
@@ -90,7 +93,9 @@ export const buildInvoicePdfBlob = (invoice: InvoiceData, logoDataUrl: string): 
   // Header band
   doc.setFillColor(...COLORS.cream);
   doc.rect(0, 0, pageWidth, 40, 'F');
-  doc.addImage(logoDataUrl, 'PNG', marginX, 8, 24, 24);
+  if (logoDataUrl) {
+    doc.addImage(logoDataUrl, 'PNG', marginX, 8, 24, 24);
+  }
   doc.setFont('times', 'bold');
   doc.setFontSize(22);
   doc.setTextColor(...COLORS.charcoal);
@@ -126,6 +131,30 @@ export const buildInvoicePdfBlob = (invoice: InvoiceData, logoDataUrl: string): 
   if (invoice.customer.phone) {
     doc.text(invoice.customer.phone, marginX, y);
     y += 5;
+  }
+
+  if (invoice.customer.flowerType) {
+    y += 6;
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(...COLORS.charcoal);
+    doc.text('Flowers', marginX, y);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...COLORS.softBrown);
+    y += 5;
+    doc.text(invoice.customer.flowerType, marginX, y);
+  }
+
+  if (invoice.customer.message) {
+    y += 8;
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(...COLORS.charcoal);
+    doc.text('Story', marginX, y);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...COLORS.softBrown);
+    y += 5;
+    const messageLines = doc.splitTextToSize(invoice.customer.message, pageWidth - marginX * 2);
+    doc.text(messageLines, marginX, y);
+    y += messageLines.length * 5;
   }
 
   // Line items table
@@ -185,6 +214,16 @@ export const buildInvoicePdfBlob = (invoice: InvoiceData, logoDataUrl: string): 
   doc.setTextColor(...COLORS.softBrown);
   doc.text(`Verification code: ${invoice.verificationCode}`, marginX, y);
   y += 8;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8);
+  doc.setTextColor(...COLORS.softBrown);
+  const disclaimerLines = doc.splitTextToSize(
+    'Prices shown do not include applicable taxes. This is an order summary, not a receipt of payment — we will confirm payment details with you directly.',
+    pageWidth - marginX * 2
+  );
+  doc.text(disclaimerLines, marginX, y);
+  y += disclaimerLines.length * 4 + 6;
+
   doc.setFont('times', 'italic');
   doc.setFontSize(10);
   doc.setTextColor(...COLORS.charcoal);

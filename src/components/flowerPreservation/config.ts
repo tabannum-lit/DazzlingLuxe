@@ -41,9 +41,10 @@ export const RETURN_FEE_PLACEHOLDER = 25;
 export const CONSENT_TEXT =
   "Because flower preservation requires additional flowers for testing, breakage, colour changes and design selection, Dazzling Luxe may retain and reuse excess prepared flowers that are not incorporated into the customer's commissioned piece. If you would like all unused flowers returned, please request this before the preservation process begins; additional preparation/handling fees may apply.";
 
-// Placeholder handles — Dazzling Luxe to confirm real profile URLs before launch.
-export const SOCIAL_LINKS = {
-  instagram: 'https://instagram.com/dazzlingluxe',
-  facebook: 'https://facebook.com/dazzlingluxe',
-  tiktok: 'https://tiktok.com/@dazzlingluxe',
+// Placeholder handles — Dazzling Luxe MUST replace these with real profile
+// URLs before launch. These are deliberately not real-looking accounts.
+export const SOCIAL_LINKS_PLACEHOLDER = {
+  instagram: 'https://instagram.com/REPLACE_WITH_REAL_HANDLE',
+  facebook: 'https://facebook.com/REPLACE_WITH_REAL_HANDLE',
+  tiktok: 'https://tiktok.com/@REPLACE_WITH_REAL_HANDLE',
 };

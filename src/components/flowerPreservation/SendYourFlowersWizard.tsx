@@ -27,15 +27,19 @@ const SendYourFlowersWizard = () => {
     setGenerating(true);
     setError(null);
     try {
-      const [invoiceData, logoDataUrl] = await Promise.all([
-        buildInvoiceData({ customer: details, keepsake, consentChoice, issuedAt: new Date() }),
-        loadLogoDataUrl(),
-      ]);
+      let logoDataUrl: string | null = null;
+      try {
+        logoDataUrl = await loadLogoDataUrl();
+      } catch (logoErr) {
+        console.error('Failed to load invoice logo, continuing without it:', logoErr);
+      }
+      const invoiceData = await buildInvoiceData({ customer: details, keepsake, consentChoice, issuedAt: new Date() });
       const blob = buildInvoicePdfBlob(invoiceData, logoDataUrl);
       setInvoice(invoiceData);
       setPdfBlob(blob);
       setStep('invoice');
-    } catch {
+    } catch (err) {
+      console.error('Invoice generation failed:', err);
       setError('Could not generate the invoice. Please try again.');
     } finally {
       setGenerating(false);
@@ -111,6 +115,7 @@ const SendYourFlowersWizard = () => {
     return <InvoiceStep invoice={invoice} pdfBlob={pdfBlob} onStartOver={handleStartOver} />;
   }
 
+  console.warn('SendYourFlowersWizard: reached an unexpected state', { step, keepsake, consentChoice, invoice, pdfBlob });
   return null;
 };
 
