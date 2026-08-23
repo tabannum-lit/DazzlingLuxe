@@ -77,8 +77,11 @@ already link to `/send-your-flowers`).
 
 ## File layout
 
+Following the existing convention of domain sub-folders under
+`src/components/` (`home/`, `layout/`, `seasonal/`, `shared/`):
+
 ```
-src/features/flowerPreservation/
+src/components/flowerPreservation/
   SendYourFlowersWizard.tsx   (step machine, replaces page body)
   DetailsStep.tsx
   KeepsakeStep.tsx
@@ -87,7 +90,7 @@ src/features/flowerPreservation/
   InvoiceStep.tsx
   config.ts                  (prices, RETURN_FEE_PLACEHOLDER, CONSENT_TEXT, SOCIAL_LINKS placeholders)
   types.ts                   (WizardState, KeepsakeOption, ConsentChoice)
-src/utils/invoiceGenerator.ts (jsPDF document builder + verification code)
+src/utils/invoiceGenerator.ts (pure calculations + verification code + jsPDF document builder)
 src/pages/SendYourFlowersPage.tsx (thin wrapper rendering the wizard)
 ```
 
@@ -157,6 +160,22 @@ business owner.
 - A render/step-progression test for the wizard (React Testing Library,
   already a dependency) covering: selecting a keepsake, answering
   consent, reaching the review total, and reaching the invoice step.
+- **Test-environment note (verified by spike):** the CRA/jsdom test
+  environment has no global `TextEncoder`/`TextDecoder` or
+  `crypto.subtle`, which both `invoiceGenerator.ts` (verification code)
+  and the `jspdf` package (at import time) need. `src/setupTests.ts`
+  must polyfill these from Node's built-in `util` and `crypto` modules
+  before any test imports `jspdf` or calls the verification function.
+  Confirmed working with `crypto.webcrypto` from Node's `crypto` module
+  and `TextEncoder`/`TextDecoder` from `util`.
+- **Test-environment note (verified by spike):** `jsPDF.addImage()` with
+  a PNG data URL works fine in this jsdom environment (no canvas
+  needed) — confirmed with a 1x1 PNG fixture. The real logo will be
+  loaded via `fetch()` + `FileReader` in the browser at runtime, which
+  is not exercised in unit tests; `buildInvoicePdfBlob` takes the logo
+  as an already-loaded data-URL string parameter so it stays a pure,
+  synchronous, testable function, separate from the browser-only
+  `loadLogoDataUrl()` fetch helper.
 
 ## Open items intentionally left as placeholders
 
