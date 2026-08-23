@@ -1,5 +1,7 @@
+import { jsPDF } from 'jspdf';
 import { ConsentChoice, CustomerDetails, InvoiceData, KeepsakeOption } from '../components/flowerPreservation/types';
-import { RETURN_FEE_PLACEHOLDER } from '../components/flowerPreservation/config';
+import { CONSENT_TEXT, RETURN_FEE_PLACEHOLDER } from '../components/flowerPreservation/config';
+import { formatCurrency } from './currency';
 
 export const calculateReturnFee = (consentChoice: ConsentChoice): number =>
   consentChoice === 'return' ? RETURN_FEE_PLACEHOLDER : 0;
@@ -56,10 +58,6 @@ export const buildInvoiceData = async (params: {
     verificationCode,
   };
 };
-
-import { jsPDF } from 'jspdf';
-import { formatCurrency } from './currency';
-import { CONSENT_TEXT } from '../components/flowerPreservation/config';
 
 const COLORS = {
   cream: [255, 248, 240] as [number, number, number],
