@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InvoiceData } from './types';
 import { SOCIAL_LINKS_PLACEHOLDER } from './config';
 import { formatCurrency } from '../../utils/currency';
@@ -10,7 +10,6 @@ export type InvoiceStepProps = {
 };
 
 const InvoiceStep = ({ invoice, pdfBlob, onStartOver }: InvoiceStepProps) => {
-  const pdfUrl = useMemo(() => URL.createObjectURL(pdfBlob), [pdfBlob]);
   const fileName = `dazzling-luxe-invoice-${invoice.invoiceNumber}.pdf`;
 
   const [canNativeShare] = useState(() => {
@@ -18,9 +17,17 @@ const InvoiceStep = ({ invoice, pdfBlob, onStartOver }: InvoiceStepProps) => {
     return typeof navigator.share === 'function' && typeof nav.canShare === 'function';
   });
 
+  // Create and revoke the object URL inside the same effect run (rather than
+  // useMemo + a separate cleanup) so React StrictMode's dev-mode double
+  // mount/cleanup/remount always revokes the URL IT created, never the one
+  // currently rendered — otherwise the double-invoke revokes the only URL
+  // in existence and the download link silently points at a dead blob.
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   useEffect(() => {
-    return () => URL.revokeObjectURL(pdfUrl);
-  }, [pdfUrl]);
+    const url = URL.createObjectURL(pdfBlob);
+    setPdfUrl(url);
+    return () => URL.revokeObjectURL(url);
+  }, [pdfBlob]);
 
   const handleShare = async () => {
     const file = new File([pdfBlob], fileName, { type: 'application/pdf' });
@@ -49,7 +56,7 @@ const InvoiceStep = ({ invoice, pdfBlob, onStartOver }: InvoiceStepProps) => {
       </div>
 
       <a
-        href={pdfUrl}
+        href={pdfUrl ?? undefined}
         download={fileName}
         className="mt-8 inline-block w-full py-4 rounded-full bg-warmGold text-white font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg"
       >
