@@ -61,7 +61,7 @@ export const buildInvoiceData = async (params: {
 
 const COLORS = {
   cream: [255, 248, 240] as [number, number, number],
-  warmGold: [200, 169, 110] as [number, number, number],
+  warmGold: [196, 225, 197] as [number, number, number],
   charcoal: [44, 44, 44] as [number, number, number],
   softBrown: [107, 91, 79] as [number, number, number],
 };

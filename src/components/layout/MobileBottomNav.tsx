@@ -30,7 +30,7 @@ const MobileBottomNav = () => {
             <path d="M16 10a4 4 0 01-8 0" />
           </svg>
           {totalQuantity > 0 && (
-            <span className="absolute -top-0.5 right-0.5 min-w-[16px] h-4 flex items-center justify-center rounded-full bg-warmGold text-[10px] font-bold text-white">
+            <span className="absolute -top-0.5 right-0.5 min-w-[16px] h-4 flex items-center justify-center rounded-full bg-warmGold text-[10px] font-bold text-charcoal">
               {totalQuantity}
             </span>
           )}

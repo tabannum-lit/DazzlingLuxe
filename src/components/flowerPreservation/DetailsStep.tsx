@@ -75,7 +75,7 @@ const DetailsStep = ({ details, onSubmit }: DetailsStepProps) => {
         {error ? <p className="text-sm text-red-600">{error}</p> : null}
 
         <button type="submit"
-          className="w-full py-4 rounded-full bg-warmGold text-white font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg">
+          className="w-full py-4 rounded-full bg-warmGold text-charcoal font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg">
           Continue
         </button>
       </form>

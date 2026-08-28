@@ -58,7 +58,7 @@ const InvoiceStep = ({ invoice, pdfBlob, onStartOver }: InvoiceStepProps) => {
       <a
         href={pdfUrl ?? undefined}
         download={fileName}
-        className="mt-8 inline-block w-full py-4 rounded-full bg-warmGold text-white font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg"
+        className="mt-8 inline-block w-full py-4 rounded-full bg-warmGold text-charcoal font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg"
       >
         Download Invoice
       </a>

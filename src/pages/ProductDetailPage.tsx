@@ -34,7 +34,7 @@ const ProductDetailPage = ({ products }: ProductDetailPageProps) => {
       <EmptyState
         title="Product Not Found"
         description="The keepsake you're looking for isn't available."
-        action={<Link to="/jewelry" className="rounded-full bg-warmGold px-6 py-3 text-sm font-bold text-white">Browse Collection</Link>}
+        action={<Link to="/jewelry" className="rounded-full bg-warmGold px-6 py-3 text-sm font-bold text-charcoal hover:bg-deepGold transition-colors">Browse Collection</Link>}
       />
     );
   }
@@ -115,7 +115,7 @@ const ProductDetailPage = ({ products }: ProductDetailPageProps) => {
 
           <div className="grid gap-3 sm:grid-cols-2 pt-2">
             <button
-              className="py-4 rounded-full bg-warmGold text-white font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg"
+              className="py-4 rounded-full bg-warmGold text-charcoal font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg"
               onClick={() => addToCart(product)}
               id={`add-to-cart-detail-${product.id}`}
             >
@@ -123,7 +123,7 @@ const ProductDetailPage = ({ products }: ProductDetailPageProps) => {
             </button>
             <Link
               to="/send-your-flowers"
-              className="py-4 rounded-full border-2 border-warmGold text-warmGold font-bold uppercase tracking-wider text-center transition-all hover:bg-warmGold hover:text-white"
+              className="py-4 rounded-full border-2 border-warmGold text-warmGold font-bold uppercase tracking-wider text-center transition-all hover:bg-warmGold hover:text-charcoal"
             >
               Customize This Piece
             </Link>

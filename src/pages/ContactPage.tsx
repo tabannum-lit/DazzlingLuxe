@@ -92,7 +92,7 @@ const ContactPage = () => {
               className="w-full rounded-xl border border-beige bg-cream/50 px-4 py-3 text-sm outline-none focus:border-warmGold transition-colors resize-none" />
           </div>
           <button type="submit"
-            className="w-full py-3.5 rounded-full bg-warmGold text-white font-bold uppercase tracking-wider hover:bg-deepGold transition-colors"
+            className="w-full py-3.5 rounded-full bg-warmGold text-charcoal font-bold uppercase tracking-wider hover:bg-deepGold transition-colors"
             id="contact-submit">
             Send Message
           </button>

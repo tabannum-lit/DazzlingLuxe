@@ -37,7 +37,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           )}
         </div>
         {product.newArrival && (
-          <span className="absolute top-3 left-3 bg-warmGold text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+          <span className="absolute top-3 left-3 bg-warmGold text-charcoal text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
             New
           </span>
         )}
@@ -66,7 +66,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           )}
         </div>
         <button
-          className="mt-4 w-full py-3 rounded-full bg-warmGold text-white text-sm font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-md"
+          className="mt-4 w-full py-3 rounded-full bg-warmGold text-charcoal text-sm font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-md"
           onClick={() => addToCart(product)}
           aria-label={`Add ${product.name} to cart`}
           id={`add-to-cart-${product.id}`}

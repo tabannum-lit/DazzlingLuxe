@@ -97,7 +97,7 @@ const GiftOccasionPage = () => {
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
             to="/jewelry"
-            className="rounded-full bg-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-deepGold"
+            className="rounded-full bg-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-charcoal transition-all hover:bg-deepGold"
           >
             Shop jewelry
           </Link>

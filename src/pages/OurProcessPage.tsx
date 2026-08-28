@@ -57,7 +57,7 @@ const OurProcessPage = () => {
         </p>
         <Link
           to="/send-your-flowers"
-          className="mt-6 inline-block rounded-full bg-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-deepGold"
+          className="mt-6 inline-block rounded-full bg-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-charcoal hover:bg-deepGold"
         >
           Preserve your flowers
         </Link>

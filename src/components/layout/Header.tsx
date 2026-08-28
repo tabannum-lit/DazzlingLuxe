@@ -257,7 +257,7 @@ const Header = () => {
                 to={item.to}
                 className={`whitespace-nowrap border-b border-transparent pb-0.5 text-[13px] font-normal tracking-[0.04em] transition-opacity duration-200 hover:opacity-75 ${
                   item.highlight
-                    ? 'text-[#E8A87C]'
+                    ? 'text-warmGold'
                     : lightHeader
                       ? 'text-white'
                       : 'text-charcoal'
@@ -300,7 +300,7 @@ const Header = () => {
                 to={item.to}
                 className={`text-sm tracking-[0.08em] transition-opacity duration-200 hover:opacity-75 ${
                   item.highlight
-                    ? 'text-[#E8A87C]'
+                    ? 'text-warmGold'
                     : lightHeader
                       ? 'text-white'
                       : 'text-charcoal'

@@ -24,7 +24,7 @@ const CartPage = ({ products }: CartPageProps) => {
         title="Your Cart Is Empty"
         description="Start by exploring our beautiful floral keepsakes."
         action={
-          <Link to="/jewelry" className="rounded-full bg-warmGold px-6 py-3 text-sm font-bold text-white hover:bg-deepGold transition-colors">
+          <Link to="/jewelry" className="rounded-full bg-warmGold px-6 py-3 text-sm font-bold text-charcoal hover:bg-deepGold transition-colors">
             Browse Collection
           </Link>
         }

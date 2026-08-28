@@ -10,7 +10,7 @@ const AccountPage = () => (
     </p>
     <Link
       to="/contact"
-      className="mt-8 inline-block rounded-full bg-warmGold px-8 py-3 text-xs font-bold uppercase tracking-widest text-white hover:bg-deepGold"
+      className="mt-8 inline-block rounded-full bg-warmGold px-8 py-3 text-xs font-bold uppercase tracking-widest text-charcoal hover:bg-deepGold"
     >
       Contact studio
     </Link>

@@ -63,7 +63,7 @@ const HeroSection = () => {
         >
           <Link
             to="/send-your-flowers"
-            className="rounded-full bg-warmGold px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white shadow-md transition-all hover:bg-deepGold hover:shadow-lg hover:shadow-warmGold/25"
+            className="rounded-full bg-warmGold px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-charcoal shadow-md transition-all hover:bg-deepGold hover:shadow-lg hover:shadow-warmGold/25"
           >
             Send flowers to preserve
           </Link>

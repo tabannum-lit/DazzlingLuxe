@@ -95,7 +95,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="rounded-full bg-warmGold px-5 py-2.5 text-sm font-bold text-white hover:bg-deepGold transition-colors"
+                  className="rounded-full bg-warmGold px-5 py-2.5 text-sm font-bold text-charcoal hover:bg-deepGold transition-colors"
                   id="newsletter-submit"
                 >
                   Join

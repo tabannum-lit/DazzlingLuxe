@@ -3,12 +3,12 @@
     "cream": "#FFF8F0",
     "ivory": "#FFFFF0",
     "beige": "#F5E6D3",
-    "warm-gold": "#C8A96E",
-    "deep-gold": "#A67C52",
+    "warm-gold": "#c4e1c5",
+    "deep-gold": "#c4e1c5",
     "blush": "#F2D4C2",
     "charcoal": "#2C2C2C",
     "soft-brown": "#6B5B4F",
-    "light-gold": "#E8D5B7",
+    "light-gold": "#c4e1c5",
     "pale-rose": "#F9EDE6",
     "white": "#FFFFFF"
   },
@@ -32,9 +32,9 @@
     "product-padding": "1.25rem"
   },
   "shadows": {
-    "header": "0 4px 20px rgba(200, 169, 110, 0.08)",
-    "card": "0 4px 15px rgba(200, 169, 110, 0.1)",
-    "hover": "0 20px 40px rgba(200, 169, 110, 0.15)"
+    "header": "0 4px 20px rgba(196, 225, 197, 0.08)",
+    "card": "0 4px 15px rgba(196, 225, 197, 0.1)",
+    "hover": "0 20px 40px rgba(196, 225, 197, 0.15)"
   },
   "transitions": {
     "all": "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",

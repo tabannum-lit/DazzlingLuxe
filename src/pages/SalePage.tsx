@@ -31,7 +31,7 @@ const SalePage = ({ products }: Props) => {
         </p>
         <Link
           to="/jewelry"
-          className="mt-6 inline-block rounded-full border-2 border-warmGold px-6 py-3 text-xs font-bold uppercase tracking-widest text-warmGold transition-colors hover:bg-warmGold hover:text-white"
+          className="mt-6 inline-block rounded-full border-2 border-warmGold px-6 py-3 text-xs font-bold uppercase tracking-widest text-warmGold transition-colors hover:bg-warmGold hover:text-charcoal"
         >
           Browse full jewelry
         </Link>

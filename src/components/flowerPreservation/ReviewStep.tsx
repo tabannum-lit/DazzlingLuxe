@@ -78,7 +78,7 @@ const ReviewStep = ({ details, keepsake, returnFee, total, onConfirm, onBack, ge
           type="button"
           onClick={onConfirm}
           disabled={generating}
-          className="w-full py-4 rounded-full bg-warmGold text-white font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg disabled:opacity-60"
+          className="w-full py-4 rounded-full bg-warmGold text-charcoal font-bold uppercase tracking-wider transition-all hover:bg-deepGold hover:shadow-lg disabled:opacity-60"
         >
           {generating ? 'Generating…' : 'Generate Invoice'}
         </button>

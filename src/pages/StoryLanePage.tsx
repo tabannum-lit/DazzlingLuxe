@@ -107,7 +107,7 @@ const StoryLanePage = () => {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link
               to={data.ctaPrimary.to}
-              className="inline-flex justify-center rounded-full bg-warmGold px-8 py-3.5 text-center text-xs font-bold uppercase tracking-widest text-white transition hover:bg-deepGold"
+              className="inline-flex justify-center rounded-full bg-warmGold px-8 py-3.5 text-center text-xs font-bold uppercase tracking-widest text-charcoal transition hover:bg-deepGold"
             >
               {data.ctaPrimary.label}
             </Link>

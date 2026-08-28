@@ -58,7 +58,7 @@ const MemorialKeepsakesPage = () => {
         <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <Link
             to="/send-your-flowers"
-            className="inline-flex justify-center rounded-full bg-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-deepGold"
+            className="inline-flex justify-center rounded-full bg-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-charcoal hover:bg-deepGold"
           >
             Begin intake
           </Link>
