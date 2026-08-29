@@ -76,7 +76,7 @@ const StoryLanePage = () => {
     return (
       <section className="text-center">
         <h1 className="font-heading text-3xl">Page not found</h1>
-        <Link to="/" className="mt-4 inline-block text-warmGold underline">
+        <Link to="/" className="mt-4 inline-block text-goldInk underline">
           Home
         </Link>
       </section>
@@ -91,7 +91,7 @@ const StoryLanePage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-charcoal/20" />
         </div>
         <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-14">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-warmGold">{data.kicker}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-goldInk">{data.kicker}</p>
           <h1 className="font-heading mt-3 text-4xl leading-tight text-charcoal md:text-[2.75rem]">
             {data.title}
           </h1>
@@ -113,7 +113,7 @@ const StoryLanePage = () => {
             </Link>
             <Link
               to={data.ctaSecondary.to}
-              className="inline-flex justify-center rounded-full border-2 border-warmGold px-8 py-3.5 text-center text-xs font-bold uppercase tracking-widest text-warmGold transition hover:bg-warmGold/10"
+              className="inline-flex justify-center rounded-full border-2 border-warmGold px-8 py-3.5 text-center text-xs font-bold uppercase tracking-widest text-goldInk transition hover:bg-warmGold/10"
             >
               {data.ctaSecondary.label}
             </Link>

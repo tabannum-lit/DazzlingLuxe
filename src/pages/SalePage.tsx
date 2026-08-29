@@ -23,7 +23,7 @@ const SalePage = ({ products }: Props) => {
   return (
     <section>
       <div className="mb-10 rounded-2xl border border-warmGold/25 bg-gradient-to-br from-paleRose/40 to-cream p-8 text-center md:text-left">
-        <p className="text-xs font-bold uppercase tracking-[0.25em] text-warmGold">Limited time</p>
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-goldInk">Limited time</p>
         <h1 className="font-heading mt-2 text-4xl text-charcoal md:text-5xl">On Sale</h1>
         <p className="mx-auto mt-3 max-w-2xl text-softBrown md:mx-0">
           Real dried-flower jewelry and home keepsakes—hand-set in resin and precious metals. These
@@ -31,7 +31,7 @@ const SalePage = ({ products }: Props) => {
         </p>
         <Link
           to="/jewelry"
-          className="mt-6 inline-block rounded-full border-2 border-warmGold px-6 py-3 text-xs font-bold uppercase tracking-widest text-warmGold transition-colors hover:bg-warmGold hover:text-charcoal"
+          className="mt-6 inline-block rounded-full border-2 border-warmGold px-6 py-3 text-xs font-bold uppercase tracking-widest text-goldInk transition-colors hover:bg-warmGold hover:text-charcoal"
         >
           Browse full jewelry
         </Link>
@@ -44,7 +44,7 @@ const SalePage = ({ products }: Props) => {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="rounded-full border border-beige bg-white px-4 py-2.5 text-sm text-charcoal outline-none focus:border-warmGold"
+          className="rounded-full border border-beige bg-white px-4 py-2.5 text-sm text-charcoal outline-none focus:border-goldInk"
         >
           <option value="featured">Best savings</option>
           <option value="price-asc">Price: Low → High</option>

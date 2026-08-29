@@ -1,9 +1,11 @@
+import Icon from '../components/shared/Icon';
+
 const AboutPage = () => {
   return (
     <section className="max-w-4xl mx-auto">
       {/* Hero */}
       <div className="text-center mb-16">
-        <p className="text-warmGold uppercase tracking-[0.2em] text-sm font-bold">Our Story</p>
+        <p className="text-goldInk uppercase tracking-[0.2em] text-sm font-bold">Our Story</p>
         <h1 className="font-heading text-4xl md:text-6xl text-charcoal mt-3">About Dazzling Luxe</h1>
         <div className="mt-6 w-16 h-px bg-warmGold mx-auto" />
       </div>
@@ -38,12 +40,12 @@ const AboutPage = () => {
         <h2 className="font-heading text-3xl text-charcoal text-center mb-12">Our Values</h2>
         <div className="grid gap-8 md:grid-cols-3 max-w-3xl mx-auto">
           {[
-            { icon: '🌿', title: 'Natural Beauty', desc: 'We work with real flowers, preserving their authentic beauty without artificial substitutes.' },
-            { icon: '💛', title: 'Emotional Connection', desc: 'Every keepsake is crafted with the understanding that it holds a precious memory.' },
-            { icon: '✋', title: 'Handcrafted Care', desc: 'Each piece is individually made by hand, ensuring uniqueness and attention to detail.' },
+            { icon: 'leaf' as const, title: 'Natural Beauty', desc: 'We work with real flowers, preserving their authentic beauty without artificial substitutes.' },
+            { icon: 'heart' as const, title: 'Emotional Connection', desc: 'Every keepsake is crafted with the understanding that it holds a precious memory.' },
+            { icon: 'hand' as const, title: 'Handcrafted Care', desc: 'Each piece is individually made by hand, ensuring uniqueness and attention to detail.' },
           ].map((v) => (
             <div key={v.title} className="text-center">
-              <div className="text-3xl mb-3">{v.icon}</div>
+              <Icon name={v.icon} className="mx-auto mb-3 h-8 w-8 text-goldInk" />
               <h3 className="font-heading text-xl text-charcoal mb-2">{v.title}</h3>
               <p className="text-sm text-softBrown leading-relaxed">{v.desc}</p>
             </div>
@@ -63,7 +65,7 @@ const AboutPage = () => {
 
       {/* Location */}
       <div className="bg-white rounded-2xl border border-beige/40 p-8 text-center">
-        <h3 className="font-heading text-2xl text-charcoal mb-3">Based in Newfoundland 🍁</h3>
+        <h3 className="font-heading text-2xl text-charcoal mb-3">Based in Newfoundland</h3>
         <p className="text-softBrown text-sm leading-relaxed max-w-md mx-auto">
           Proudly operating from the beautiful province of Newfoundland and Labrador, Canada.
           We ship our keepsakes across Canada and accept flowers from anywhere in the country.

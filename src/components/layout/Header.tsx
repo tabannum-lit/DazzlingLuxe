@@ -16,7 +16,7 @@ const navItems = [
 const BrandMark = ({ light }: { light: boolean }) => (
   <Link to="/" className="inline-flex items-center gap-2" aria-label="Dazzling Luxe home">
     <img
-      src="/logo-dazz-transparent.png"
+      src="/latest_logo.png"
       alt=""
       className="h-10 w-auto object-contain sm:h-11 lg:h-12"
       aria-hidden="true"
@@ -31,7 +31,7 @@ const BrandMark = ({ light }: { light: boolean }) => (
       </span>
       <svg
         className={`absolute left-[42%] top-0 h-[10px] w-[10px] -translate-x-1/2 transition-colors duration-300 ${
-          light ? 'text-white' : 'text-warmGold'
+          light ? 'text-white' : 'text-goldInk'
         }`}
         viewBox="0 0 24 24"
         fill="none"
@@ -227,8 +227,11 @@ const Header = () => {
                 key={item.label}
                 to={item.to}
                 className={`whitespace-nowrap border-b border-transparent pb-0.5 text-[13px] font-normal tracking-[0.04em] transition-opacity duration-200 hover:opacity-75 ${
+                  // Gold TEXT cannot hold 4.5:1 over a rotating hero photo at
+                  // any reasonable scrim, so the promo item carries its own
+                  // gold ground instead of depending on the image behind it.
                   item.highlight
-                    ? 'text-warmGold'
+                    ? 'rounded-full bg-warmGold px-3 py-0.5 font-bold text-charcoal'
                     : lightHeader
                       ? 'text-white'
                       : 'text-charcoal'
@@ -271,7 +274,7 @@ const Header = () => {
                 to={item.to}
                 className={`text-sm tracking-[0.08em] transition-opacity duration-200 hover:opacity-75 ${
                   item.highlight
-                    ? 'text-warmGold'
+                    ? 'self-start rounded-full bg-warmGold px-3 py-0.5 font-bold text-charcoal'
                     : lightHeader
                       ? 'text-white'
                       : 'text-charcoal'

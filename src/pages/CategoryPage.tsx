@@ -28,14 +28,14 @@ const CategoryPage = ({ products, title, subtitle, category }: CategoryPageProps
     <section>
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-10">
         <div>
-          <p className="text-warmGold uppercase tracking-[0.2em] text-sm font-bold">Collection</p>
+          <p className="text-goldInk uppercase tracking-[0.2em] text-sm font-bold">Collection</p>
           <h1 className="font-heading text-4xl md:text-5xl text-charcoal mt-2">{title}</h1>
           <p className="mt-2 text-softBrown">{subtitle}</p>
         </div>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="rounded-full border border-beige bg-white px-4 py-2.5 text-sm text-charcoal outline-none focus:border-warmGold cursor-pointer"
+          className="rounded-full border border-beige bg-white px-4 py-2.5 text-sm text-charcoal outline-none focus:border-goldInk cursor-pointer"
           id="sort-select"
         >
           <option value="featured">Featured</option>

@@ -69,7 +69,7 @@ const GiftOccasionPage = () => {
     return (
       <section className="text-center">
         <h1 className="font-heading text-3xl text-charcoal">Occasion not found</h1>
-        <Link to="/" className="mt-4 inline-block text-warmGold underline">
+        <Link to="/" className="mt-4 inline-block text-goldInk underline">
           Return home
         </Link>
       </section>
@@ -85,7 +85,7 @@ const GiftOccasionPage = () => {
             'radial-gradient(ellipse at 20% 20%, rgba(200, 169, 110, 0.12), transparent 50%)',
         }}
       >
-        <p className="text-xs font-bold uppercase tracking-[0.25em] text-warmGold">Gifts</p>
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-goldInk">Gifts</p>
         <h1 className="font-heading mt-3 text-4xl text-charcoal md:text-5xl">{data.title}</h1>
         <p className="mt-4 max-w-2xl text-lg text-softBrown">{data.subtitle}</p>
         <ul className="mt-8 max-w-2xl list-disc space-y-3 pl-5 text-sm leading-relaxed text-softBrown">
@@ -93,7 +93,7 @@ const GiftOccasionPage = () => {
             <li key={`${slug}-${i}`}>{line}</li>
           ))}
         </ul>
-        <p className="mt-8 font-heading text-xl italic text-deepGold">{data.accent}</p>
+        <p className="mt-8 font-heading text-xl italic text-goldInk">{data.accent}</p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
             to="/jewelry"
@@ -103,7 +103,7 @@ const GiftOccasionPage = () => {
           </Link>
           <Link
             to="/memorial-keepsakes"
-            className="rounded-full border-2 border-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-warmGold transition-colors hover:bg-warmGold/10"
+            className="rounded-full border-2 border-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-goldInk transition-colors hover:bg-warmGold/10"
           >
             Memorial inclusions
           </Link>

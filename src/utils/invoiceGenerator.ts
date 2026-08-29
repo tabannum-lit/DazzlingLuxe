@@ -60,10 +60,10 @@ export const buildInvoiceData = async (params: {
 };
 
 const COLORS = {
-  cream: [255, 248, 240] as [number, number, number],
+  cream: [243, 250, 243] as [number, number, number],
   warmGold: [196, 225, 197] as [number, number, number],
   charcoal: [44, 44, 44] as [number, number, number],
-  softBrown: [107, 91, 79] as [number, number, number],
+  softBrown: [94, 107, 96] as [number, number, number],
 };
 
 // Keeps the consent wording used in the PDF pulled from the same shared
@@ -72,7 +72,7 @@ const CONSENT_TEXT_FOR_PDF = (invoice: InvoiceData): string =>
   `${CONSENT_TEXT} (Consent given: ${invoice.consentChoice === 'return' ? 'return unused flowers' : 'Dazzling Luxe may retain unused flowers'}.)`;
 
 export const loadLogoDataUrl = async (): Promise<string> => {
-  const response = await fetch('/logo-dazz-transparent.png');
+  const response = await fetch('/latest_logo.png');
   if (!response.ok) {
     throw new Error(`Logo fetch failed: ${response.status}`);
   }

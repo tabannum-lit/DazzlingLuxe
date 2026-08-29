@@ -159,7 +159,7 @@ const ShopPage = ({ products }: ShopPageProps) => {
     <section>
       <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-warmGold">Collection</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-goldInk">Collection</p>
           <h1 className="mt-2 font-heading text-4xl text-charcoal md:text-5xl">{heading}</h1>
           <p className="mt-2 text-softBrown">
             {filteredProducts.length} {filteredProducts.length === 1 ? 'piece' : 'pieces'} handmade with real preserved
@@ -167,7 +167,7 @@ const ShopPage = ({ products }: ShopPageProps) => {
             {isNarrowed ? (
               <>
                 {' '}
-                <Link to="/shop" className="underline transition-colors hover:text-warmGold">
+                <Link to="/shop" className="underline transition-colors hover:text-goldInk">
                   View all
                 </Link>
               </>

@@ -12,7 +12,7 @@ const KeepsakeStep = ({ selected, onSelect, onBack }: KeepsakeStepProps) => {
   return (
     <section className="max-w-4xl mx-auto">
       <div className="text-center mb-10">
-        <p className="text-warmGold uppercase tracking-[0.2em] text-sm font-bold">Step 2 of 5</p>
+        <p className="text-goldInk uppercase tracking-[0.2em] text-sm font-bold">Step 2 of 5</p>
         <h1 className="font-heading text-4xl md:text-5xl text-charcoal mt-3">Choose Your Keepsake</h1>
         <p className="mt-4 text-softBrown max-w-lg mx-auto">
           Send your flowers to dry and make a piece to hold on to it forever.
@@ -31,7 +31,7 @@ const KeepsakeStep = ({ selected, onSelect, onBack }: KeepsakeStepProps) => {
           >
             <h3 className="font-heading text-2xl text-charcoal">{option.label}</h3>
             <p className="mt-2 text-sm text-softBrown">{option.description}</p>
-            <p className="mt-4 text-lg font-bold text-warmGold">{formatCurrency(option.price)}</p>
+            <p className="mt-4 text-lg font-bold text-goldInk">{formatCurrency(option.price)}</p>
           </button>
         ))}
       </div>

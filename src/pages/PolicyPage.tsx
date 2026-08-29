@@ -18,7 +18,7 @@ type PolicyPageProps = {
 
 const PolicyPage = ({ eyebrow, title, intro, sections, lastUpdated, footer }: PolicyPageProps) => (
   <section className="mx-auto max-w-3xl">
-    <p className="text-sm font-bold uppercase tracking-[0.2em] text-warmGold">{eyebrow}</p>
+    <p className="text-sm font-bold uppercase tracking-[0.2em] text-goldInk">{eyebrow}</p>
     <h1 className="mt-2 font-heading text-4xl text-charcoal md:text-5xl">{title}</h1>
     <p className="mt-4 text-softBrown">{intro}</p>
 

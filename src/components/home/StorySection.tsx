@@ -8,7 +8,7 @@ const StorySection = () => {
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-charcoal/60" />
+        <div className="absolute inset-0 bg-charcoal/70" />
       </div>
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white">
         <p className="text-warmGold uppercase tracking-[0.25em] text-sm font-bold mb-6">Our Philosophy</p>

@@ -28,7 +28,7 @@ const OurProcessPage = () => {
   return (
     <>
       <header className="mb-12 text-center">
-        <p className="text-xs font-bold uppercase tracking-[0.25em] text-warmGold">Transparency</p>
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-goldInk">Transparency</p>
         <h1 className="font-heading mt-3 text-4xl text-charcoal md:text-5xl">Our artisan process</h1>
         <p className="mx-auto mt-4 max-w-2xl text-softBrown">
           Dazzling Luxe exists to honour real dried flowers—never plastic substitutes. Every pour is timed by hand.
@@ -41,7 +41,7 @@ const OurProcessPage = () => {
             key={s.n}
             className="rounded-2xl border border-beige/70 bg-ivory/80 p-6 text-center transition hover:border-warmGold/40 hover:shadow-lg hover:shadow-warmGold/10"
           >
-            <span className="text-xs font-bold text-warmGold">{s.n}</span>
+            <span className="text-xs font-bold text-goldInk">{s.n}</span>
             <h2 className="font-heading mt-2 text-xl text-charcoal">{s.title}</h2>
             <p className="mt-3 text-sm leading-relaxed text-softBrown">{s.text}</p>
           </article>

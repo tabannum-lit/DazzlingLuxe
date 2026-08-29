@@ -9,16 +9,21 @@ module.exports = {
         logo: ['"Great Vibes"', 'cursive'],
       },
       colors: {
-        cream: '#FFF8F0',
-        ivory: '#FFFFF0',
-        beige: '#F5E6D3',
-        warmGold: '#c4e1c5',
-        deepGold: '#c4e1c5',
-        blush: '#F2D4C2',
+        // Neutral surfaces retinted mint (were warm cream/beige/rose).
+        cream: '#F3FAF3',
+        ivory: '#F6FCF7',
+        beige: '#DCEEDC',
+        // Mint ramp built around the brand colour #c4e1c5. Same hue throughout;
+        // only lightness varies so each step can do its job (see index.css).
+        lightGold: '#E5F1E5', // tinted surfaces and washes
+        warmGold: '#C4E1C5', // brand mint (exact) — fills, icons, decoration
+        deepGold: '#6FB972', // hover/active state for mint fills
+        goldInk: '#265E28', // mint TEXT and focus borders on light surfaces (AA)
+        blush: '#D9EFDA',
         charcoal: '#2C2C2C',
-        softBrown: '#6B5B4F',
-        lightGold: '#c4e1c5',
-        paleRose: '#F9EDE6',
+        softBrown: '#5E6B60', // muted secondary text, retinted cool sage (was warm brown)
+        paleRose: '#EAF6EA',
+        emeraldDark: '#0F3D2E', // dark emerald — footer background
       },
       animation: {
         'float-slow': 'floatUp 12s ease-in-out infinite',

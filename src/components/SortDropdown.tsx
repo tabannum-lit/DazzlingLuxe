@@ -13,7 +13,7 @@ const SortDropdown = ({ value, onChange }: SortDropdownProps) => {
         id="sort-products"
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="cursor-pointer rounded-full border border-beige bg-white px-4 py-2.5 text-sm text-charcoal outline-none focus:border-warmGold"
+        className="cursor-pointer rounded-full border border-beige bg-white px-4 py-2.5 text-sm text-charcoal outline-none focus:border-goldInk"
       >
         <option value="newest">Newest</option>
         <option value="price-asc">Price: Low → High</option>

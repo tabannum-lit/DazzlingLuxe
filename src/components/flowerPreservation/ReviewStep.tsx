@@ -17,7 +17,7 @@ const ReviewStep = ({ details, keepsake, returnFee, total, onConfirm, onBack, ge
   return (
     <section className="max-w-xl mx-auto">
       <div className="text-center mb-10">
-        <p className="text-warmGold uppercase tracking-[0.2em] text-sm font-bold">Step 4 of 5</p>
+        <p className="text-goldInk uppercase tracking-[0.2em] text-sm font-bold">Step 4 of 5</p>
         <h1 className="font-heading text-4xl md:text-5xl text-charcoal mt-3">Review Your Order</h1>
       </div>
 
@@ -67,7 +67,7 @@ const ReviewStep = ({ details, keepsake, returnFee, total, onConfirm, onBack, ge
         )}
         <div className="border-t border-beige pt-4 flex justify-between text-lg">
           <span className="font-bold text-charcoal">Total</span>
-          <span className="font-bold text-warmGold">{formatCurrency(total)}</span>
+          <span className="font-bold text-goldInk">{formatCurrency(total)}</span>
         </div>
       </div>
 

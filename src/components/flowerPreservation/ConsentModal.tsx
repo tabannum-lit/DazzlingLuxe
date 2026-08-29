@@ -12,7 +12,7 @@ const ConsentModal = ({ keepsake, onChoose, onBack }: ConsentModalProps) => {
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/45 p-4" role="dialog" aria-modal="true" aria-label="Flower drying consent">
       <div className="w-full max-w-lg rounded-2xl bg-white p-6 sm:p-8 shadow-xl">
-        <p className="text-warmGold uppercase tracking-[0.2em] text-sm font-bold">Step 3 of 5</p>
+        <p className="text-goldInk uppercase tracking-[0.2em] text-sm font-bold">Step 3 of 5</p>
         <h2 className="font-heading text-3xl text-charcoal mt-2">Flower Drying Consent</h2>
         <p className="mt-4 text-sm text-softBrown leading-relaxed">{CONSENT_TEXT}</p>
 

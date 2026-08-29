@@ -43,7 +43,7 @@ const CategoryCards = () => {
   return (
     <section className="mt-24" aria-labelledby="category-heading" id="categories-section">
       <div className="mb-12 text-center">
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-warmGold">Shop collections</p>
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-goldInk">Shop collections</p>
         <h2 id="category-heading" className="mt-3 font-heading text-4xl text-charcoal md:text-5xl">
           Botanical heirlooms
         </h2>
@@ -65,11 +65,11 @@ const CategoryCards = () => {
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/75 via-charcoal/25 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/45 to-charcoal/10" />
             <div className="absolute inset-x-0 bottom-0 p-6 text-white">
               <h3 className="font-heading text-2xl md:text-3xl">{cat.title}</h3>
               <p className="mt-2 text-sm text-white/85">{cat.description}</p>
-              <span className="mt-3 inline-block text-sm font-bold uppercase tracking-wider text-warmGold transition-transform group-hover:translate-x-2">
+              <span className="mt-3 inline-block text-sm font-bold uppercase tracking-wider text-lightGold transition-transform group-hover:translate-x-2">
                 Explore →
               </span>
             </div>

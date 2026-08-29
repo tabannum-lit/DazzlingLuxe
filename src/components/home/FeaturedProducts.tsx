@@ -34,18 +34,18 @@ const FeaturedShowcaseCard = ({ product, large = false }: FeaturedShowcaseCardPr
         />
       ) : null}
 
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-charcoal/5 transition-opacity duration-500 group-hover:opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/60 to-charcoal/15 transition-opacity duration-500 group-hover:opacity-90" />
       <div className="absolute inset-0 ring-1 ring-inset ring-white/15" />
 
-      <div className={`relative z-10 flex h-full flex-col justify-between ${large ? 'p-6 md:p-8' : 'p-5 md:p-6'}`}>
+      <div className={`absolute inset-0 z-10 flex flex-col justify-between ${large ? 'p-6 md:p-8' : 'p-5 md:p-6'}`}>
         <div>
-          <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.24em] text-white/90 backdrop-blur-sm">
+          <span className="inline-flex rounded-full border border-white/30 bg-charcoal/60 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.24em] text-white backdrop-blur-sm">
             {badge}
           </span>
         </div>
 
         <div className={large ? 'max-w-md' : 'max-w-xs'}>
-          <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-white/70">
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-white/85">
             {product.category}
           </p>
           <h3
@@ -55,15 +55,15 @@ const FeaturedShowcaseCard = ({ product, large = false }: FeaturedShowcaseCardPr
           >
             {product.name}
           </h3>
-          <p className={`mt-3 text-sm leading-relaxed text-white/78 ${large ? 'max-w-sm' : 'max-w-[18rem]'}`}>
+          <p className={`mt-3 text-sm leading-relaxed text-white/80 ${large ? 'max-w-sm' : 'max-w-[18rem]'}`}>
             {product.description}
           </p>
 
           <div className="mt-6 flex items-center justify-between gap-4">
-            <span className="text-sm font-bold uppercase tracking-[0.22em] text-warmGold">
+            <span className="text-sm font-bold uppercase tracking-[0.22em] text-lightGold">
               {formatCurrency(product.price)}
             </span>
-            <span className="inline-flex items-center rounded-full border border-white/25 px-5 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-all duration-300 group-hover:border-white group-hover:bg-white group-hover:text-charcoal">
+            <span className="inline-flex items-center rounded-full border border-white/40 bg-charcoal/45 px-5 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-white backdrop-blur-sm transition-all duration-300 group-hover:border-white group-hover:bg-white group-hover:text-charcoal">
               Explore Piece
             </span>
           </div>
@@ -84,7 +84,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-warmGold">Handpicked</p>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-goldInk">Handpicked</p>
             <h2 className="mt-3 font-heading text-4xl leading-none text-charcoal md:text-5xl">
               Featured Jewelry Pieces
             </h2>
@@ -95,7 +95,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
 
           <Link
             to="/jewelry"
-            className="text-sm font-bold uppercase tracking-[0.2em] text-warmGold transition-colors hover:text-deepGold"
+            className="text-sm font-bold uppercase tracking-[0.2em] text-goldInk transition-colors hover:text-charcoal"
           >
             View All {'->'}
           </Link>

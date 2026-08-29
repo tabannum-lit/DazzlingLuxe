@@ -44,10 +44,10 @@ const CartPage = ({ products }: CartPageProps) => {
               <img src={product.images[0]} alt={product.name} className="h-28 w-full rounded-xl object-cover" loading="lazy" />
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <Link to={`/product/${product.id}`} className="font-heading text-xl text-charcoal hover:text-warmGold transition-colors">
+                  <Link to={`/product/${product.id}`} className="font-heading text-xl text-charcoal hover:text-goldInk transition-colors">
                     {product.name}
                   </Link>
-                  <p className="text-xs text-warmGold uppercase tracking-wider mt-1">{product.category}</p>
+                  <p className="text-xs text-goldInk uppercase tracking-wider mt-1">{product.category}</p>
                   <p className="mt-2 text-lg font-bold text-charcoal">{formatCurrency(product.price)}</p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ const CartPage = ({ products }: CartPageProps) => {
                     aria-label="Increase quantity"
                   >+</button>
                 </div>
-                <button className="text-sm text-softBrown underline hover:text-warmGold transition-colors" onClick={() => removeFromCart(product.id)}>
+                <button className="text-sm text-softBrown underline hover:text-goldInk transition-colors" onClick={() => removeFromCart(product.id)}>
                   Remove
                 </button>
               </div>
@@ -107,7 +107,7 @@ const CartPage = ({ products }: CartPageProps) => {
               ))}
             </div>
           </div>
-          <button className="mt-4 w-full text-sm text-softBrown underline hover:text-warmGold transition-colors" onClick={clearCart}>
+          <button className="mt-4 w-full text-sm text-softBrown underline hover:text-goldInk transition-colors" onClick={clearCart}>
             Clear Cart
           </button>
         </aside>

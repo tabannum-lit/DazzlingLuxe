@@ -1,15 +1,16 @@
 {
   "colors": {
-    "cream": "#FFF8F0",
-    "ivory": "#FFFFF0",
-    "beige": "#F5E6D3",
-    "warm-gold": "#c4e1c5",
-    "deep-gold": "#c4e1c5",
-    "blush": "#F2D4C2",
+    "cream": "#F3FAF3",
+    "ivory": "#F6FCF7",
+    "beige": "#DCEEDC",
+    "warm-gold": "#C4E1C5",
+    "deep-gold": "#6FB972",
+    "blush": "#D9EFDA",
     "charcoal": "#2C2C2C",
-    "soft-brown": "#6B5B4F",
-    "light-gold": "#c4e1c5",
-    "pale-rose": "#F9EDE6",
+    "soft-brown": "#5E6B60",
+    "light-gold": "#E5F1E5",
+    "gold-ink": "#265E28",
+    "pale-rose": "#EAF6EA",
     "white": "#FFFFFF"
   },
   "typography": {
@@ -33,7 +34,7 @@
   },
   "shadows": {
     "header": "0 4px 20px rgba(196, 225, 197, 0.08)",
-    "card": "0 4px 15px rgba(196, 225, 197, 0.1)",
+    "card": "0 4px 15px rgba(196, 225, 197, 0.10)",
     "hover": "0 20px 40px rgba(196, 225, 197, 0.15)"
   },
   "transitions": {

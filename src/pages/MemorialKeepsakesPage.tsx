@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Icon from '../components/shared/Icon';
 
 const inclusions = [
   {
@@ -19,7 +20,7 @@ const MemorialKeepsakesPage = () => {
   return (
     <section>
       <div className="rounded-3xl border border-beige/60 bg-gradient-to-b from-paleRose/50 to-cream px-6 py-14 text-center md:px-12">
-        <p className="text-xs font-bold uppercase tracking-[0.25em] text-warmGold">Memorial & remembrance</p>
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-goldInk">Memorial & remembrance</p>
         <h1 className="font-heading mt-3 text-4xl text-charcoal md:text-[2.75rem]">Keepsakes beyond blooms</h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-softBrown">
           When words aren&apos;t enough, we combine botanicals with the textures of a life loved—always handled with private notes and
@@ -43,15 +44,15 @@ const MemorialKeepsakesPage = () => {
         <h2 className="font-heading text-center text-3xl text-charcoal">What to expect</h2>
         <ul className="mx-auto mt-8 max-w-2xl space-y-4 text-sm text-softBrown">
           <li className="flex gap-3">
-            <span className="text-warmGold">✦</span>
+            <Icon name="sparkle" className="mt-0.5 h-4 w-4 shrink-0 text-goldInk" />
             Consent form and optional clergy / vet documentation for shared pieces
           </li>
           <li className="flex gap-3">
-            <span className="text-warmGold">✦</span>
+            <Icon name="sparkle" className="mt-0.5 h-4 w-4 shrink-0 text-goldInk" />
             Photo updates before final pour; one revision window on layout when possible
           </li>
           <li className="flex gap-3">
-            <span className="text-warmGold">✦</span>
+            <Icon name="sparkle" className="mt-0.5 h-4 w-4 shrink-0 text-goldInk" />
             8–12 week timeline depending on drying—rush quoted case by case
           </li>
         </ul>
@@ -64,13 +65,13 @@ const MemorialKeepsakesPage = () => {
           </Link>
           <Link
             to="/funeral-wake"
-            className="inline-flex justify-center rounded-full border-2 border-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-warmGold hover:bg-warmGold/10"
+            className="inline-flex justify-center rounded-full border-2 border-warmGold px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-goldInk hover:bg-warmGold/10"
           >
             Funeral & wake flowers
           </Link>
           <Link
             to="/contact"
-            className="inline-flex justify-center rounded-full border border-beige px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-softBrown hover:border-warmGold hover:text-warmGold"
+            className="inline-flex justify-center rounded-full border border-beige px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-softBrown hover:border-warmGold hover:text-goldInk"
           >
             Ask a private question
           </Link>

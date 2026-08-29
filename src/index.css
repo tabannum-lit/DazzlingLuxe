@@ -5,16 +5,17 @@
 @tailwind utilities;
 
 :root {
-  --color-cream: #FFF8F0;
-  --color-ivory: #FFFFF0;
-  --color-beige: #F5E6D3;
-  --color-warm-gold: #c4e1c5;
-  --color-deep-gold: #c4e1c5;
-  --color-blush: #F2D4C2;
+  --color-cream: #F3FAF3;
+  --color-ivory: #F6FCF7;
+  --color-beige: #DCEEDC;
+  --color-light-gold: #E5F1E5;
+  --color-warm-gold: #C4E1C5;
+  --color-deep-gold: #6FB972;
+  --color-gold-ink: #265E28;
+  --color-blush: #D9EFDA;
   --color-charcoal: #2C2C2C;
-  --color-soft-brown: #6B5B4F;
-  --color-light-gold: #c4e1c5;
-  --color-pale-rose: #F9EDE6;
+  --color-soft-brown: #5E6B60;
+  --color-pale-rose: #EAF6EA;
   --font-heading: 'Cormorant Garamond', serif;
   --font-body: 'Lato', -apple-system, sans-serif;
   --font-logo: 'Great Vibes', cursive;
@@ -62,9 +63,10 @@ html {
 }
 
 /* Selection color */
+/* Charcoal on the brand mint clears AA (9.9:1); white on it does not. */
 ::selection {
   background-color: var(--color-warm-gold);
-  color: white;
+  color: var(--color-charcoal);
 }
 
 /* Scrollbar styling */
