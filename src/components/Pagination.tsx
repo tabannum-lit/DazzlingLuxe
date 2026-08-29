@@ -14,7 +14,7 @@ const Pagination = ({ currentPage, pageCount, onPageChange }: PaginationProps) =
   return (
     <nav className="mt-10 flex flex-wrap items-center justify-center gap-2" aria-label="Pagination">
       <button
-        className="rounded-full border border-pink-200 px-4 py-2 text-sm text-gray-700 disabled:opacity-40"
+        className="min-h-[44px] rounded-full border border-beige px-5 py-2 text-sm text-charcoal transition-colors hover:border-warmGold disabled:opacity-40 disabled:hover:border-beige"
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
@@ -23,8 +23,10 @@ const Pagination = ({ currentPage, pageCount, onPageChange }: PaginationProps) =
       {pages.map((page) => (
         <button
           key={page}
-          className={`h-10 w-10 rounded-full border text-sm ${
-            page === currentPage ? 'border-pink-500 bg-pink-500 text-white' : 'border-pink-200 text-gray-700'
+          className={`h-11 w-11 rounded-full border text-sm transition-colors ${
+            page === currentPage
+              ? 'border-warmGold bg-warmGold font-bold text-charcoal'
+              : 'border-beige text-charcoal hover:border-warmGold'
           }`}
           onClick={() => onPageChange(page)}
           aria-current={page === currentPage ? 'page' : undefined}
@@ -33,7 +35,7 @@ const Pagination = ({ currentPage, pageCount, onPageChange }: PaginationProps) =
         </button>
       ))}
       <button
-        className="rounded-full border border-pink-200 px-4 py-2 text-sm text-gray-700 disabled:opacity-40"
+        className="min-h-[44px] rounded-full border border-beige px-5 py-2 text-sm text-charcoal transition-colors hover:border-warmGold disabled:opacity-40 disabled:hover:border-beige"
         disabled={currentPage === pageCount}
         onClick={() => onPageChange(currentPage + 1)}
       >

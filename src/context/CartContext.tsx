@@ -20,23 +20,36 @@ type CartProviderProps = {
   products: Product[];
 };
 
+/**
+ * Read the saved cart during the initial render.
+ *
+ * This must happen in the state initialiser rather than in an effect. With an
+ * effect, the save-effect below also fires on mount — while `items` is still
+ * the empty default — and overwrites the stored cart before the restored state
+ * is committed. Under StrictMode's double-invoked effects the hydrate pass then
+ * reads that `[]` back and the cart is silently emptied on every reload.
+ */
+const readStoredCart = (): CartItem[] => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return [];
+    const parsed = JSON.parse(stored) as CartItem[];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+};
+
 export const CartProvider = ({ children, products }: CartProviderProps) => {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>(readStoredCart);
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored) as CartItem[];
-        setItems(Array.isArray(parsed) ? parsed : []);
-      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
     } catch {
-      setItems([]);
+      // Storage can be unavailable (private mode, quota). The cart still works
+      // for this session; it just won't survive a reload.
     }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   }, [items]);
 
   const addToCart = (product: Product) => {

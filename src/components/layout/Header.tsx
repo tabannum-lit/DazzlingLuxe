@@ -2,29 +2,13 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'rea
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 
-const getHolidayName = () => {
-  const month = new Date().getMonth();
-  switch (month) {
-    case 0: return "New Year Specials";
-    case 1: return "Valentine's Day";
-    case 3: 
-    case 4: return "Mother's Day";
-    case 5: return "Father's Day";
-    case 9: return "Halloween";
-    case 10: return "Thanksgiving";
-    case 11: return "Christmas";
-    default: return "Seasonal Specials";
-  }
-};
-
 const navItems = [
-  { label: 'New & featured', to: '/' },
-  { label: getHolidayName(), to: '/holiday', highlight: true },
-  { label: 'Shop by', to: '/jewelry' },
-  { label: 'Bracelets', to: '/jewelry' },
-  { label: 'Necklaces', to: '/jewelry' },
-  { label: 'Rings', to: '/jewelry' },
-  { label: 'Earrings', to: '/jewelry' },
+  { label: 'New & featured', to: '/shop?new=true' },
+  { label: 'Shop all', to: '/shop' },
+  { label: 'Bracelets', to: '/shop?subcategory=Bracelets' },
+  { label: 'Necklaces', to: '/shop?subcategory=Necklaces' },
+  { label: 'Rings', to: '/shop?subcategory=Rings' },
+  { label: 'Earrings', to: '/shop?subcategory=Earrings' },
   { label: 'Personalised gift', to: '/send-your-flowers' },
   { label: 'Sale', to: '/sale', highlight: true },
 ];
@@ -210,19 +194,6 @@ const Header = () => {
             </form>
 
             <div className="flex items-center justify-self-end gap-6">
-              <IconButton label="Wishlist" light={lightHeader}>
-                <svg className="h-[22px] w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.75 8.5A4.75 4.75 0 019.5 3.75c1.58 0 3.02.77 3.9 2.03a4.74 4.74 0 013.85-2.03A4.75 4.75 0 0122 8.5c0 5.25-6.24 8.95-8.6 11.2a1 1 0 01-1.4 0C9.64 17.45 3.4 13.75 3.4 8.5z" />
-                </svg>
-              </IconButton>
-
-              <IconButton label="Store Locator" light={lightHeader}>
-                <svg className="h-[22px] w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21s6-5.4 6-11a6 6 0 10-12 0c0 5.6 6 11 6 11z" />
-                  <circle cx="12" cy="10" r="2.3" />
-                </svg>
-              </IconButton>
-
               <IconButton label="Account" light={lightHeader} to="/account">
                 <svg className="h-[22px] w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />

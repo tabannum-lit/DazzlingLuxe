@@ -1,5 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { SOCIAL_LINKS } from '../../config/socials';
+import SocialIcon from '../shared/SocialIcon';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -31,15 +33,17 @@ const Footer = () => {
               blooms. Studio craft rooted in Canada.
             </p>
             <div className="flex gap-3 mt-5">
-              {['Instagram', 'Facebook', 'Pinterest'].map((social) => (
-                <button
-                  key={social}
-                  type="button"
-                  className="w-9 h-9 rounded-full border border-beige flex items-center justify-center text-softBrown transition-all hover:border-warmGold hover:text-warmGold hover:bg-warmGold/5"
-                  aria-label={social}
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-11 h-11 rounded-full border border-beige flex items-center justify-center text-softBrown transition-all hover:border-warmGold hover:text-warmGold hover:bg-warmGold/5"
+                  aria-label={`Dazzling Luxe on ${social.name}`}
                 >
-                  <span className="text-xs font-bold">{social[0]}</span>
-                </button>
+                  <SocialIcon name={social.name} className="h-[18px] w-[18px]" />
+                </a>
               ))}
             </div>
           </div>
@@ -67,9 +71,9 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-warmGold transition-colors">About Us</Link></li>
               <li><Link to="/reviews" className="hover:text-warmGold transition-colors">Reviews</Link></li>
               <li><Link to="/contact" className="hover:text-warmGold transition-colors">Contact</Link></li>
-              <li><span className="cursor-default">Shipping Policy</span></li>
-              <li><span className="cursor-default">Return Policy</span></li>
-              <li><span className="cursor-default">Privacy Policy</span></li>
+              <li><Link to="/shipping-policy" className="hover:text-warmGold transition-colors">Shipping Policy</Link></li>
+              <li><Link to="/return-policy" className="hover:text-warmGold transition-colors">Return Policy</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-warmGold transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 

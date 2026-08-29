@@ -22,8 +22,8 @@ const categories = [
   {
     title: 'Displays',
     description: 'Coasters, suncatchers, and desk totems with pressed botanicals',
-    link: '/displays',
-    image: 'https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=80',
+    link: '/coasters-suncatchers',
+    image: '/images/products/flower-suncatcher.png',
   },
   {
     title: 'Funeral & Wake',

@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Layout from './components/layout/Layout';
 import LoadingSpinner from './components/shared/LoadingSpinner';
@@ -22,11 +22,16 @@ import StoryLanePage from './pages/StoryLanePage';
 import OurProcessPage from './pages/OurProcessPage';
 import MemorialKeepsakesPage from './pages/MemorialKeepsakesPage';
 import AccountPage from './pages/AccountPage';
+import ShopPage from './pages/ShopPage';
+import ShippingPolicyPage from './pages/ShippingPolicyPage';
+import ReturnPolicyPage from './pages/ReturnPolicyPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 const SendYourFlowersPage = lazy(() => import('./pages/SendYourFlowersPage'));
 
 const pageTitles: Record<string, string> = {
   '/': 'Dazzling Luxe — Handmade Botanical Jewelry',
+  '/shop': 'Shop All | Dazzling Luxe',
   '/sale': 'On Sale | Dazzling Luxe',
   '/jewelry': 'Floral Jewelry | Dazzling Luxe',
   '/coasters-suncatchers': 'Displays — Coasters & Suncatchers | Dazzling Luxe',
@@ -43,6 +48,9 @@ const pageTitles: Record<string, string> = {
   '/contact': 'Contact | Dazzling Luxe',
   '/cart': 'Your Cart | Dazzling Luxe',
   '/account': 'Account | Dazzling Luxe',
+  '/shipping-policy': 'Shipping Policy | Dazzling Luxe',
+  '/return-policy': 'Return Policy | Dazzling Luxe',
+  '/privacy-policy': 'Privacy Policy | Dazzling Luxe',
 };
 
 const ScrollToTop = () => {
@@ -79,10 +87,13 @@ const RoutedExperience = () => {
         {!loading && !error ? (
           <Routes>
             <Route path="/" element={<HomePage products={products} />} />
+            <Route path="/shop" element={<ShopPage products={products} />} />
             <Route path="/sale" element={<SalePage products={products} />} />
             <Route path="/jewelry" element={<JewelryPage products={products} />} />
             <Route path="/coasters-suncatchers" element={<CoastersSuncatchersPage products={products} />} />
-            <Route path="/displays" element={<CoastersSuncatchersPage products={products} />} />
+            {/* Canonical URL is /coasters-suncatchers; /displays is kept as a redirect
+                so the two don't serve identical content under different titles. */}
+            <Route path="/displays" element={<Navigate to="/coasters-suncatchers" replace />} />
             <Route path="/personalized-keepsakes" element={<PersonalizedKeepsakesPage products={products} />} />
             <Route
               path="/send-your-flowers"
@@ -104,6 +115,9 @@ const RoutedExperience = () => {
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/account" element={<AccountPage />} />
+            <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
+            <Route path="/return-policy" element={<ReturnPolicyPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         ) : null}

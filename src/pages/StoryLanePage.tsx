@@ -57,7 +57,7 @@ const LANES: Record<
     ctaPrimary: { to: '/send-your-flowers', label: 'Start preservation' },
     ctaSecondary: { to: '/personalized-keepsakes', label: 'See personalized work' },
     image:
-      'https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1400&q=80',
   },
 };
 

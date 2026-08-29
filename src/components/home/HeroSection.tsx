@@ -68,7 +68,7 @@ const HeroSection = () => {
             Send flowers to preserve
           </Link>
           <Link
-            to="/feature-this-season"
+            to="/shop"
             className="rounded-full border-2 border-white/85 bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-charcoal"
           >
             Shop Collection

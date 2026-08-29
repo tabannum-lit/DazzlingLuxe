@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import EmptyState from '../components/shared/EmptyState';
+import SocialIcon from '../components/shared/SocialIcon';
+import { ORDER_CHANNELS } from '../config/socials';
 import { useCart } from '../context/CartContext';
 import { Product } from '../types';
 import { formatCurrency } from '../utils/currency';
@@ -24,7 +26,7 @@ const CartPage = ({ products }: CartPageProps) => {
         title="Your Cart Is Empty"
         description="Start by exploring our beautiful floral keepsakes."
         action={
-          <Link to="/jewelry" className="rounded-full bg-warmGold px-6 py-3 text-sm font-bold text-charcoal hover:bg-deepGold transition-colors">
+          <Link to="/shop" className="rounded-full bg-warmGold px-6 py-3 text-sm font-bold text-charcoal hover:bg-deepGold transition-colors">
             Browse Collection
           </Link>
         }
@@ -85,23 +87,24 @@ const CartPage = ({ products }: CartPageProps) => {
             <span className="font-bold text-charcoal">Total</span>
             <span className="text-2xl font-bold text-charcoal">{formatCurrency(subtotal)}</span>
           </div>
-          <div className="mt-6 flex flex-col gap-4 text-center">
-            <p className="text-sm font-medium leading-relaxed text-charcoal border border-warmGold/40 bg-warmGold/10 p-4 rounded-xl">
-              We are working on website payment method for now and will update later. For now, please buy from these socials:
+          <div className="mt-6 flex flex-col gap-4">
+            <p className="rounded-xl border border-warmGold/40 bg-warmGold/10 p-4 text-sm font-medium leading-relaxed text-charcoal">
+              Online payment is coming soon. To order, message us on any channel below and quote your order summary —
+              we'll confirm availability and take payment there.
             </p>
             <div className="grid grid-cols-2 gap-3">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-lg border border-pink-200 bg-pink-50 hover:bg-pink-100 py-2.5 text-sm font-bold text-pink-700 transition-colors">
-                Instagram
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-lg border border-blue-200 bg-blue-50 hover:bg-blue-100 py-2.5 text-sm font-bold text-blue-700 transition-colors">
-                Facebook
-              </a>
-              <a href="https://tiktok.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 py-2.5 text-sm font-bold text-gray-800 transition-colors">
-                TikTok
-              </a>
-              <a href="https://etsy.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-lg border border-orange-200 bg-orange-50 hover:bg-orange-100 py-2.5 text-sm font-bold text-orange-700 transition-colors">
-                Etsy
-              </a>
+              {ORDER_CHANNELS.map((channel) => (
+                <a
+                  key={channel.name}
+                  href={channel.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-beige bg-cream py-2.5 text-sm font-bold text-charcoal transition-colors hover:border-warmGold hover:bg-warmGold/10"
+                >
+                  <SocialIcon name={channel.name} className="h-4 w-4" />
+                  {channel.name}
+                </a>
+              ))}
             </div>
           </div>
           <button className="mt-4 w-full text-sm text-softBrown underline hover:text-warmGold transition-colors" onClick={clearCart}>

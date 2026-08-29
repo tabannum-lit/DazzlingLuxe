@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import EmptyState from '../components/EmptyState';
+import { Link, useSearchParams } from 'react-router-dom';
+import EmptyState from '../components/shared/EmptyState';
 import FiltersSidebar, { ShopFilters } from '../components/FiltersSidebar';
 import Pagination from '../components/Pagination';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/shared/ProductCard';
 import SortDropdown from '../components/SortDropdown';
 import { Product, RecipientTag } from '../types';
 
@@ -13,13 +13,30 @@ type ShopPageProps = {
 
 const ITEMS_PER_PAGE = 9;
 
+/**
+ * Match a product against a free-text query. Every whitespace-separated term
+ * must appear somewhere in the product's searchable text, so "flower necklace"
+ * narrows rather than widens.
+ */
+const matchesSearch = (product: Product, query: string) => {
+  const haystack = [product.name, product.category, product.subcategory, product.description]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+
+  return query
+    .split(/\s+/)
+    .filter(Boolean)
+    .every((term) => haystack.includes(term));
+};
+
 const ShopPage = ({ products }: ShopPageProps) => {
   const [searchParams] = useSearchParams();
   const [filters, setFilters] = useState<ShopFilters>({});
   const [sortBy, setSortBy] = useState('newest');
   const [page, setPage] = useState(1);
 
-  const querySearch = searchParams.get('search')?.toLowerCase() ?? '';
+  const querySearch = searchParams.get('search')?.toLowerCase().trim() ?? '';
   const queryCategory = searchParams.get('category');
   const queryRecipient = searchParams.get('recipient');
   const querySubcategory = searchParams.get('subcategory');
@@ -51,7 +68,7 @@ const ShopPage = ({ products }: ShopPageProps) => {
     const next = products.filter((product) => {
       const recipientTags = product.recipientTags ?? [];
 
-      if (querySearch && !product.name.toLowerCase().includes(querySearch)) {
+      if (querySearch && !matchesSearch(product, querySearch)) {
         return false;
       }
 
@@ -132,30 +149,59 @@ const ShopPage = ({ products }: ShopPageProps) => {
   const pageCount = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
   const paginatedProducts = filteredProducts.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
+  // Describe what the visitor is currently looking at.
+  const heading = querySearch
+    ? `Results for “${searchParams.get('search')}”`
+    : querySubcategory ?? queryCategory ?? (queryNewOnly ? 'New Arrivals' : 'Shop All');
+  const isNarrowed = Boolean(querySearch || querySubcategory || queryCategory || queryNewOnly || queryGiftOnly);
+
   return (
     <section>
-      <div className="flex flex-wrap items-end justify-between gap-4">
+      <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
         <div>
-          <p className="text-sm uppercase tracking-[0.14em] text-pink-500">Collection</p>
-          <h1 className="mt-1 font-heading text-5xl text-gray-800">Shop Handmade</h1>
-          <p className="mt-2 text-gray-600">Curated jewelry, raisin crafts, and artisan clay keepsakes.</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-warmGold">Collection</p>
+          <h1 className="mt-2 font-heading text-4xl text-charcoal md:text-5xl">{heading}</h1>
+          <p className="mt-2 text-softBrown">
+            {filteredProducts.length} {filteredProducts.length === 1 ? 'piece' : 'pieces'} handmade with real preserved
+            flowers.
+            {isNarrowed ? (
+              <>
+                {' '}
+                <Link to="/shop" className="underline transition-colors hover:text-warmGold">
+                  View all
+                </Link>
+              </>
+            ) : null}
+          </p>
         </div>
         <SortDropdown value={sortBy} onChange={setSortBy} />
       </div>
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-[280px_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
         <FiltersSidebar products={products} filters={filters} onChange={setFilters} />
         <div>
           {paginatedProducts.length > 0 ? (
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
               {paginatedProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
             <EmptyState
-              title="No Products Found"
-              description="Try adjusting filters or search terms to discover more handmade pieces."
+              title="No Pieces Found"
+              description={
+                querySearch
+                  ? `Nothing matched “${searchParams.get('search')}”. Try a different word, or browse the full collection.`
+                  : 'Try adjusting your filters to discover more handmade pieces.'
+              }
+              action={
+                <Link
+                  to="/shop"
+                  className="rounded-full bg-warmGold px-6 py-3 text-sm font-bold text-charcoal transition-colors hover:bg-deepGold"
+                >
+                  Browse Collection
+                </Link>
+              }
             />
           )}
 
