@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const HERO_IMAGES = [
-  'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1920&q=80',
-  'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1920&q=80',
-  'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1920&q=80',
-  'https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=1920&q=80',
-  'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1920&q=80'
-];
+const HERO_IMAGES = Array.from(
+  { length: 9 },
+  (_, i) => `/images/products/hero images/hero-${i + 1}.jpeg`
+);
 
 const HeroSection = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
