@@ -51,13 +51,7 @@ const ContactPage = () => {
                   <p>hello@dazzlingluxe.ca</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <Icon name="phone" className="mt-0.5 h-5 w-5 shrink-0 text-goldInk" />
-                <div>
-                  <p className="font-bold text-charcoal">Phone</p>
-                  <p>+1 (709) 555-0199</p>
-                </div>
-              </div>
+  
               <div className="flex items-start gap-3">
                 <Icon name="pin" className="mt-0.5 h-5 w-5 shrink-0 text-goldInk" />
                 <div>

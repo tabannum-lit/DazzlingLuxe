@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { InvoiceData } from './types';
-import { SOCIAL_LINKS_PLACEHOLDER } from './config';
 import { formatCurrency } from '../../utils/currency';
 import Icon from '../shared/Icon';
+import { SOCIAL_LINKS } from '../../config/socials';
+import SocialIcon from '../shared/SocialIcon';
 
 export type InvoiceStepProps = {
   invoice: InvoiceData;
@@ -78,15 +79,18 @@ const InvoiceStep = ({ invoice, pdfBlob, onStartOver }: InvoiceStepProps) => {
         Please download the invoice above and send it to us on one of our socials so we can confirm your order:
       </p>
       <div className="mt-4 flex justify-center gap-4">
-        <a href={SOCIAL_LINKS_PLACEHOLDER.instagram} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-goldInk">
-          Instagram
-        </a>
-        <a href={SOCIAL_LINKS_PLACEHOLDER.facebook} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-goldInk">
-          Facebook
-        </a>
-        <a href={SOCIAL_LINKS_PLACEHOLDER.tiktok} target="_blank" rel="noreferrer" className="rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-goldInk">
-          TikTok
-        </a>
+        {SOCIAL_LINKS.map((social) => (
+          <a
+            key={social.name}
+            href={social.url}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 rounded-full border border-beige px-5 py-2 text-sm font-bold text-charcoal hover:border-warmGold hover:text-goldInk"
+          >
+            <SocialIcon name={social.name} className="h-4 w-4" />
+            {social.name}
+          </a>
+        ))}
       </div>
 
       <button type="button" onClick={onStartOver} className="mt-10 text-sm font-semibold text-softBrown hover:text-charcoal">

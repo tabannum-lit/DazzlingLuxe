@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-type Lane = 'wedding' | 'funeral-wake' | 'florals';
+type Lane = 'wedding' | 'funeral-wake' | 'florals' | 'others' | 'gifts';
 
 const LANES: Record<
   Lane,
@@ -59,12 +59,42 @@ const LANES: Record<
     image:
       'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1400&q=80',
   },
+  others: {
+    kicker: 'Others',
+    title: 'Small keepsakes for every day',
+    subtitle:
+      'Keychains, fridge magnets, and other pocket-sized pieces—the same real botanicals, sized for everyday carry.',
+    bullets: [
+      'Great as party favors or thank-you gifts',
+      'Mix and match florals across a set',
+      'Ask about bulk pricing for events or teams',
+    ],
+    ctaPrimary: { to: '/send-your-flowers', label: 'Start preservation' },
+    ctaSecondary: { to: '/personalized-keepsakes', label: 'See personalized work' },
+    image:
+      'https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?auto=format&fit=crop&w=1400&q=80',
+  },
+  gifts: {
+    kicker: 'Gifts',
+    title: 'Gifts',
+    subtitle: 'Ready-made and custom botanical gift pieces for every occasion.',
+    bullets: [
+      'Special pieces coming soon',
+      'Ask about custom pieces for your own occasion',
+    ],
+    ctaPrimary: { to: '/shop', label: 'Shop the collection' },
+    ctaSecondary: { to: '/personalized-keepsakes', label: 'See personalized work' },
+    image:
+      'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1400&q=80',
+  },
 };
 
 const pathToLane: Record<string, Lane> = {
   '/wedding': 'wedding',
   '/funeral-wake': 'funeral-wake',
   '/florals': 'florals',
+  '/others': 'others',
+  '/gifts': 'gifts',
 };
 
 const StoryLanePage = () => {

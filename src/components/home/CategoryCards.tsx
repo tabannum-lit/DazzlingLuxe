@@ -20,26 +20,29 @@ const categories = [
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80',
   },
   {
-    title: 'Displays',
-    description: 'Coasters, suncatchers, and desk totems with pressed botanicals',
-    link: '/coasters-suncatchers',
-    image: '/images/products/flower-suncatcher.png',
-  },
-  {
     title: 'Funeral & Wake',
     description: 'Quiet memorial glasswork from service flowers—with optional hair or fur',
     link: '/funeral-wake',
     image: 'https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=900&q=80',
   },
   {
-    title: 'From Your Flowers',
-    description: 'Ship stems from your garden—we dry, design, and cast your story',
-    link: '/florals',
-    image: 'https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80',
+    title: 'Gifts',
+    description: 'Ready-made and custom botanical gift pieces for every occasion',
+    link: '/gifts',
+    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80',
   },
 ];
 
+const otherCategory = {
+  title: 'Others',
+  description: 'Keychains, fridge magnets, and small everyday keepsakes',
+  link: '/others',
+  image: 'https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?auto=format&fit=crop&w=900&q=80',
+};
+
 const CategoryCards = () => {
+  const allCategories = [...categories, otherCategory];
+
   return (
     <section className="mt-24" aria-labelledby="category-heading" id="categories-section">
       <div className="mb-12 text-center">
@@ -52,7 +55,7 @@ const CategoryCards = () => {
         </p>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {categories.map((cat) => (
+        {allCategories.map((cat) => (
           <Link
             key={cat.title}
             to={cat.link}

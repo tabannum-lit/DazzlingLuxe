@@ -1,10 +1,9 @@
 /**
  * Single source of truth for every outbound social/shop link on the site.
  *
- * TODO(dazzling-luxe): replace each `url` below with the real profile URL.
- * These currently point at the platform home pages, which send customers to
- * the wrong place. Nothing else needs editing — the footer and the cart both
- * read from this list.
+ * TODO(dazzling-luxe): Etsy still points at the platform home page — replace
+ * with the real shop URL once it exists. Nothing else needs editing — the
+ * footer, cart, and invoice all read from this list.
  */
 
 export type SocialLink = {
@@ -17,11 +16,10 @@ export type SocialLink = {
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { name: 'Instagram', url: 'https://instagram.com', sellsDirectly: true },
-  { name: 'Facebook', url: 'https://facebook.com', sellsDirectly: true },
-  { name: 'TikTok', url: 'https://tiktok.com', sellsDirectly: true },
+  { name: 'Instagram', url: 'https://www.instagram.com/dazzlingluxenl', sellsDirectly: true },
+  { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61587442360560', sellsDirectly: true },
+  { name: 'TikTok', url: 'https://www.tiktok.com/@dazzling.luxe.nl', sellsDirectly: true },
   { name: 'Etsy', url: 'https://etsy.com', sellsDirectly: true },
-  { name: 'Pinterest', url: 'https://pinterest.com', sellsDirectly: false },
 ];
 
 /** Channels a customer can actually buy through right now. */

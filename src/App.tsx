@@ -43,6 +43,8 @@ const pageTitles: Record<string, string> = {
   '/wedding': 'Wedding | Dazzling Luxe',
   '/funeral-wake': 'Funeral & Wake Flowers | Dazzling Luxe',
   '/florals': 'From Your Flowers | Dazzling Luxe',
+  '/gifts': 'Gifts | Dazzling Luxe',
+  '/others': 'Others | Dazzling Luxe',
   '/about': 'About | Dazzling Luxe',
   '/reviews': 'Reviews | Dazzling Luxe',
   '/contact': 'Contact | Dazzling Luxe',
@@ -108,6 +110,8 @@ const RoutedExperience = () => {
             <Route path="/wedding" element={<StoryLanePage />} />
             <Route path="/funeral-wake" element={<StoryLanePage />} />
             <Route path="/florals" element={<StoryLanePage />} />
+            <Route path="/gifts" element={<StoryLanePage />} />
+            <Route path="/others" element={<StoryLanePage />} />
             <Route path="/gifts/:occasion" element={<GiftOccasionPage />} />
             <Route path="/product/:productId" element={<ProductDetailPage products={products} />} />
             <Route path="/cart" element={<CartPage products={products} />} />
