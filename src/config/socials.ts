@@ -19,7 +19,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { name: 'Instagram', url: 'https://www.instagram.com/dazzlingluxenl', sellsDirectly: true },
   { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61587442360560', sellsDirectly: true },
   { name: 'TikTok', url: 'https://www.tiktok.com/@dazzling.luxe.nl', sellsDirectly: true },
-  { name: 'Etsy', url: 'https://etsy.com', sellsDirectly: true },
+  { name: 'Etsy', url: 'https://www.etsy.com/ca/shop/DazzlingLuxeNL?ref=shop_profile&listing_id=4562771174', sellsDirectly: true },
 ];
 
 /** Channels a customer can actually buy through right now. */
