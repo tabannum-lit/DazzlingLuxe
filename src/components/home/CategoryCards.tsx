@@ -8,28 +8,28 @@ const categories = [
     image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80',
   },
   {
-    title: 'Personalised Jewelry',
-    description: 'Custom settings around your dried blooms and handwritten notes',
-    link: '/personalized-keepsakes',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80',
-  },
-  {
     title: 'Wedding',
     description: 'Bouquet petals cast into rings, pendants, and bridal party gifts',
     link: '/wedding',
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80',
   },
   {
+    title: 'Jewellery Collection',
+    description: 'Custom settings around your dried blooms and handwritten notes',
+    link: '/personalized-keepsakes',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Gifts For Everyone',
+    description: 'Ready-made and custom botanical gift pieces for every occasion',
+    link: '/gifts',
+    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80',
+  },
+  {
     title: 'Funeral & Wake',
     description: 'Quiet memorial glasswork from service flowers—with optional hair or fur',
     link: '/funeral-wake',
     image: 'https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Gifts',
-    description: 'Ready-made and custom botanical gift pieces for every occasion',
-    link: '/gifts',
-    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80',
   },
 ];
 
@@ -48,7 +48,7 @@ const CategoryCards = () => {
       <div className="mb-12 text-center">
         <p className="text-sm font-bold uppercase tracking-[0.2em] text-goldInk">Shop collections</p>
         <h2 id="category-heading" className="mt-3 font-heading text-4xl text-charcoal md:text-5xl">
-          Botanical heirlooms
+          Gifts for Everyone 
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm text-softBrown">
           Every inclusion is real dried flora (plus optional hair or pet fur for memorial work)—never plastic fillers.

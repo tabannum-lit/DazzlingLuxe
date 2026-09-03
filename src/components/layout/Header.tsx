@@ -14,16 +14,16 @@ const navItems = [
 ];
 
 const BrandMark = ({ light }: { light: boolean }) => (
-  <Link to="/" className="inline-flex items-center gap-2" aria-label="Dazzling Luxe home">
+  <Link to="/" className="inline-flex shrink-0 items-center gap-1.5 sm:gap-2" aria-label="Dazzling Luxe home">
     <img
       src="/latest_logo.png"
       alt=""
-      className="h-10 w-auto object-contain sm:h-11 lg:h-12"
+      className="h-9 w-auto object-contain sm:h-11 lg:h-12"
       aria-hidden="true"
     />
     <span className="relative inline-flex items-start pt-2">
       <span
-        className={`whitespace-nowrap font-heading text-[22px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 sm:text-[24px] lg:text-[26px] ${
+        className={`whitespace-nowrap font-heading text-[18px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 sm:text-[24px] lg:text-[26px] ${
           light ? 'text-white' : 'text-charcoal'
         }`}
       >
@@ -127,7 +127,7 @@ const Header = () => {
         <div className="flex h-14 items-center justify-between lg:hidden">
           <button
             type="button"
-            className={`inline-flex items-center justify-center ${textTone} transition-opacity duration-200 hover:opacity-70`}
+            className={`inline-flex shrink-0 items-center justify-center ${textTone} transition-opacity duration-200 hover:opacity-70`}
             aria-label="Toggle menu"
             aria-expanded={isMobileOpen}
             onClick={(e) => {
@@ -146,7 +146,7 @@ const Header = () => {
 
           <BrandMark light={lightHeader} />
 
-          <div className="flex items-center gap-4">
+          <div className="flex shrink-0 items-center gap-3">
             <IconButton label="Account" light={lightHeader} to="/account">
               <svg className="h-[22px] w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -169,12 +169,12 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:block">
-          <div className="grid h-14 grid-cols-[minmax(0,1fr)_420px_minmax(0,1fr)] items-center gap-8">
+          <div className="grid h-14 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-8">
             <div className="justify-self-start">
               <BrandMark light={lightHeader} />
             </div>
 
-            <form className={`group relative w-[420px] border-b transition-colors duration-200 ${searchBorderTone}`} onSubmit={handleSearch}>
+            <form className={`group relative w-full max-w-[420px] border-b transition-colors duration-200 ${searchBorderTone}`} onSubmit={handleSearch}>
               <button
                 type="submit"
                 className={`absolute left-0 top-1/2 -translate-y-1/2 ${lightHeader ? 'text-white/80 hover:text-white' : 'text-softBrown hover:text-charcoal'} transition-colors duration-200`}
